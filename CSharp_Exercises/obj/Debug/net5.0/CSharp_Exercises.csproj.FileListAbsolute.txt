@@ -1,0 +1,16 @@
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.exe
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.deps.json
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.runtimeconfig.json
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.runtimeconfig.dev.json
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.dll
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\ref\CSharp_Exercises.dll
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\bin\Debug\net5.0\CSharp_Exercises.pdb
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.csproj.AssemblyReference.cache
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.AssemblyInfoInputs.cache
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.AssemblyInfo.cs
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.csproj.CoreCompileInputs.cache
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.dll
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\ref\CSharp_Exercises.dll
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.pdb
+C:\Users\gabri\RiderProjects\CSharp-Excercises\CSharp_Exercises\obj\Debug\net5.0\CSharp_Exercises.genruntimeconfig.cache
