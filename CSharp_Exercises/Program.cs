@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace CSharp_Exercises
 {
@@ -105,7 +106,7 @@ namespace CSharp_Exercises
             // Console.WriteLine("Grados Fahrenheit: {0}", grados*18/10+32);
             #endregion
 
-            #region Ejer_10 - "Perimetro-Area-Pitagoras" Valor Double
+            #region Ejer_10 - "Perimetro-Area-Pitagoras" - Valor Double
             // https://www.exercisescsharp.com/es/tipos-de-datos-a/valor-double
 
             // Console.WriteLine("Ingrese Ancho:");
@@ -230,6 +231,465 @@ namespace CSharp_Exercises
             // {
             //     Console.WriteLine("No se Puede dividir por 0");
             //     throw;
+            // }
+
+            #endregion
+
+            #region Ejer_18 - Orden de prioridad
+            //https://www.exercisescsharp.com/es/aritmetica/orden-de-prioridad
+            
+            // Console.WriteLine("Por favor ingrese un numero por consola");
+            // int num = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine("Resultado:");
+            // Console.WriteLine("-6 + {0} * 5 = {1}",num, -6 + num * 5);
+            // Console.WriteLine("(13-2) * {0} = {1}",num, (13-2) * num);
+            // Console.WriteLine("({0} + -2) * (20 / 10) = {1}",num,(num + -2) * (20 / 10));
+            // Console.WriteLine("(12 + {0}) / (5 - 4) = {1}",num,(12 + num) / (5 - 4));
+      
+            #endregion
+
+            #region Ejer_19 - Media aritmética
+            //https://www.exercisescsharp.com/es/aritmetica/media-aritmetica
+
+            // Console.WriteLine("Ingrese 1er numero");
+            // int num1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese 2do numero");
+            // int num2 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese 3er numero");
+            // int num3 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese 4to numero");
+            // int num4 = Convert.ToInt32(Console.ReadLine());
+            //
+            // //para calcular la media sumar los 4 numeros y dividirlos x su cantidad 
+            // int result = (num1 + num2 + num3 + num4) / 4;
+            // Console.WriteLine(result);
+            #endregion
+
+            #region Ejer_20 - Operaciones equivalentes
+            //https://www.exercisescsharp.com/es/aritmetica/operaciones-equivalentes
+            
+            // Console.WriteLine("Ingrese valor de a");
+            // int a = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese valor de b");
+            // int b = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese valor de c");
+            // int c = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine("(a+b)*c = ({0}+{1})*{2} = {3}", a,b,c,(a+b)*c);
+            // Console.WriteLine("a*c + b*c = {0}*{2} + {1}*{2} = {3}",a,b,c,a*c + b*c);
+            
+            #endregion
+
+            #region Ejer_21 - Calcular valores de una función
+            //https://www.exercisescsharp.com/es/aritmetica/calcular-valores-funcion
+            
+            // Console.WriteLine("Ingrese valor de x1");
+            // int x1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese valor de x2");
+            // int x2 = Convert.ToInt32(Console.ReadLine());
+            //
+            // int y;
+            //
+            // for (int x = x1; x <= x2; x++)
+            // {
+            //     y= x*x-2*x+1;
+            //     Console.Write("{0} ",y);
+            // }
+
+            #endregion
+            
+            //=============================== Geometría A ===================================//
+
+            #region Ejer_22 - Dibujar un cuadrado
+            //https://www.exercisescsharp.com/es/geometria-a/dibujar-cuadrado
+
+            // Console.WriteLine("numero con el cual 'pintar'");
+            // int num1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ancho del cuadrado");
+            // int num2 = Convert.ToInt32(Console.ReadLine());
+            //
+            // for (int i = 0; i < num2; i++)//filas
+            // {
+            //     for (int j = 0; j < num2; j++)//columnas
+            //     {
+            //         Console.Write(num1);
+            //     }
+            //     Console.WriteLine();
+            // }
+            
+            #endregion
+
+            #region Ejer_22 - Dibujar un rectángulo
+            //https://www.exercisescsharp.com/es/geometria-a/dibujar-rectangulo
+
+            // Console.WriteLine("Ingrese numero");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            //
+            // for (int i = 0; i < 5; i++)//filas
+            // {
+            //     for (int j = 0; j < 3; j++)//columnas
+            //     {
+            //         Console.Write(x);
+            //     }
+            //     Console.WriteLine();
+            // }
+
+            #endregion
+
+            #region Ejer_23 - Dibujar un triángulo
+            //https://www.exercisescsharp.com/es/geometria-a/dibujar-triangulo
+
+            // Console.WriteLine("Ingrese numero con el cual 'pintar'");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese Ancho y Alto del triangulo");
+            // int y = Convert.ToInt32(Console.ReadLine());
+            //
+            // int alto = y;
+            // int ancho = y;
+            //
+            // for (int i = 0; i < alto; i++)//fila
+            // {
+            //     for (int j = 0; j < ancho; j++)
+            //     {
+            //         Console.Write(x);
+            //     }
+            //     Console.WriteLine();
+            //     --ancho;
+            // }
+
+            #endregion
+
+            #region Ejer_24 - Dibujar un triángulo nordeste
+            //https://www.exercisescsharp.com/es/geometria-a/dibujar-triangulo-nord-este
+
+            // Console.WriteLine("ingrese Ancho-Alto");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            //
+            // int a = x;
+            // int b = 0;
+            //
+            // for (int i = 0; i < x; i++)
+            // {
+            //     for (int j = 0; j < b; j++)
+            //     {
+            //         Console.Write(" ");
+            //     }
+            //
+            //     for (int k = 0; k < a; k++)
+            //     {
+            //         Console.Write("*");
+            //     }
+            //     Console.WriteLine();
+            //     a--;
+            //     b++;
+            // }
+            #endregion
+
+            #region Ejer_25 - Dibujar un triángulo alineado a la derecha - Substring
+            //https://www.exercisescsharp.com/es/geometria-a/dibujar-triangulo-alineado-derecha
+
+            // Console.WriteLine("Ingrese texto");
+            // string text = Console.ReadLine();
+            //
+            // int aux=1;
+            // for (int i = text.Length-1 ; i >= 0; i--)//fila
+            // {
+            //     Console.WriteLine(text.Substring(i,aux));
+            //     aux++;
+            // }
+            #endregion
+
+            #region Ejer_26 - Mostrar el gráfico de una función
+            //https://www.exercisescsharp.com/es/geometria-a/mostrar-grafico-de-funcion
+
+            // Console.WriteLine("1er Numero");
+            // int x1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("2do Numero");
+            // int x2 = Convert.ToInt32(Console.ReadLine());
+            // int y = 0;
+            //
+            // for (int x = x1; x <= x2; x++)
+            // {
+            //     y = (x-4)*(x-4); // y=(x-4)²
+            //     for (int j = 0; j < y; j++)
+            //     {
+            //         Console.Write("*");
+            //     }
+            //     Console.WriteLine();
+            // }
+
+            #endregion
+
+            //============================== Condiciones A ==================================//
+            
+            #region Ejer_27 - Calculadora básica usando if
+
+            // Console.WriteLine("valor 1");
+            // int a = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("operacion");
+            // string operacion = Console.ReadLine();
+            // Console.WriteLine("valor 2");
+            // int b = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine( a +"  "+ b +"  "+operacion);
+            // if (operacion == "x")
+            // {
+            //     Console.WriteLine("{0} * {1} = {2}",a,b,a*b);
+            // }else if (operacion == "/")
+            // {
+            //     Console.WriteLine("{0} / {1} = {2}",a,b,a/b);
+            // }else if (operacion == "-")
+            // {
+            //     Console.WriteLine("{0} - {1} = {2}",a,b,a-b);
+            // }else if (operacion == "+")
+            // {
+            //     Console.WriteLine("{0} + {1} = {2}",a,b,a+b);
+            // }
+            // else
+            // {
+            //     Console.WriteLine("no Se Reconoce la operacion seleccionada.");
+            // }
+
+            #endregion
+
+            #region Ejer_28 - Calculadora básica usando switch
+            //https://www.exercisescsharp.com/es/condiciones-a/calculadora-basica-usando-switch
+            
+            // Console.WriteLine("valor 1");
+            // int a = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("operacion");
+            // char operacion = Convert.ToChar(Console.ReadLine());
+            // Console.WriteLine("valor 2");
+            // int b = Convert.ToInt32(Console.ReadLine());
+            //
+            // switch (operacion)
+            // {
+            //     case 'x': Console.WriteLine("{0} x {1} = {2}",a,b,a*b); break;
+            //     case '/': Console.WriteLine("{0} / {1} = {2}",a,b,a/b); break;
+            //     case '+': Console.WriteLine("{0} + {1} = {2}",a,b,a+b); break;
+            //     case '-': Console.WriteLine("{0} - {1} = {2}",a,b,a-b); break;
+            //     default: Console.WriteLine("No se reconoce la operacion"); break;
+            // }
+            #endregion
+
+            #region Ejer_29 - Positivo y Negativo
+
+            // Console.WriteLine("Ingrese Numero");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            //
+            // if (x >= 0)
+            // {
+            //     Console.WriteLine("Positivo");
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Negativo");
+            // }
+
+            #endregion
+
+            #region Ejer_30 - El mayor de tres números
+            //https://www.exercisescsharp.com/es/condiciones-a/mayor-de-tres-numeros
+
+            // Console.WriteLine("1er Numero");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("2do Numero");
+            // int y = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("3er Numero");
+            // int z = Convert.ToInt32(Console.ReadLine());
+            //
+            // if (x>y && x>z)
+            // {
+            //     Console.WriteLine(x);
+            // }
+            // else if (y>x && y >z)
+            // {
+            //     Console.WriteLine(y);   
+            // }else if (z>x && z>y)
+            // {
+            //     Console.WriteLine(z);
+            // }
+
+            #endregion
+
+            #region Ejer_31 - Usando la instrucción while
+            //https://www.exercisescsharp.com/es/condiciones-a/usando-la-instruccion-while
+
+            // int num = 1;
+            
+            // while (num != 0)
+            // {
+            //     Console.WriteLine("Ingrese numero");
+            //     num = Convert.ToInt32(Console.ReadLine());
+            //     if (num!=0)
+            //     {
+            //         Console.WriteLine("{0}", num*10);
+            //     }
+            // }
+
+            #endregion
+
+            #region Ejer_32 - Usando la instrucción do-while
+            //https://www.exercisescsharp.com/es/condiciones-a/usando-instruccion-do-while
+         
+            // int n;
+            // do
+            // {
+            //     Console.WriteLine("ingrese numero");
+            //     n = Convert.ToInt32(Console.ReadLine());
+            //     if (n != 0)
+            //     {
+            //         Console.WriteLine("{0}",n*10);
+            //     }
+            // } while (n != 0);
+            
+            #endregion
+
+            #region Ejer_33 - Rango de números
+            //https://www.exercisescsharp.com/es/condiciones-a/rango-de-numeros
+
+            // Console.WriteLine("Ingrese origen x");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese destino y");
+            // int y = Convert.ToInt32(Console.ReadLine());
+            //
+            // //solucion a
+            // while (x<=y)
+            // {
+            //     Console.WriteLine(x);
+            //     x++;
+            // }
+            // //solucion b
+            // for (int i = x; i <= y; i++)
+            // {
+            //     Console.Write("{0} ", i);
+            // }
+
+            #endregion
+
+            #region Ejer_34 - Suma de números infinita
+            //https://www.exercisescsharp.com/es/condiciones-a/suma-numeros-infinita
+
+            // int cont = 0;
+            // int x = 1;
+            //
+            // do
+            // {
+            //     Console.WriteLine("Ingrese numero a sumar");
+            //     x = Convert.ToInt32(Console.ReadLine());
+            //     if (x!=0)
+            //     {
+            //         cont += x;
+            //         Console.WriteLine("suma = {0}" ,cont);
+            //     }
+            // } while (x !=0);
+            //
+            // Console.WriteLine("terminado");
+
+            #endregion
+
+            #region Ejer_35 - Estadísticas matemáticas 
+            //https://www.exercisescsharp.com/es/condiciones-a/estadisticas-matematicas
+            
+            //mi respuesta
+            // int max = Int32.MinValue;
+            // int min = Int32.MaxValue;
+            // int sum = 0;
+            // int avg = 0;
+            //
+            // Console.WriteLine("ingrese valor 1");
+            // int x1 = Convert.ToInt32(Console.ReadLine());
+            // if (x1 > max)
+            //     max = x1;
+            // if (x1 < min)
+            //     min = x1;
+            // Console.WriteLine("ingrese valor 2");
+            // int x2 = Convert.ToInt32(Console.ReadLine());
+            // if (x2 > max)
+            //     max = x2;
+            // if (x2 < min)
+            //     min = x2;
+            // Console.WriteLine("ingrese valor 3");
+            // int x3 = Convert.ToInt32(Console.ReadLine());
+            // if (x3 > max)
+            //     max = x3;
+            // if (x3 < min)
+            //     min = x3;
+            // Console.WriteLine("ingrese valor 4");
+            // int x4 = Convert.ToInt32(Console.ReadLine());
+            // if (x4 > max)
+            //     max = x4;
+            // if (x4 < min)
+            //     min = x4;
+            // Console.WriteLine("ingrese valor 5");
+            // int x5 = Convert.ToInt32(Console.ReadLine());
+            // if (x5 > max)
+            //     max = x5;
+            // if (x5 < min)
+            //     min = x5;
+            //
+            // sum = x1 + x2 + x3 + x4 + x5;
+            // avg = sum / 5;
+            //
+            // Console.WriteLine("Suma: {0}", sum);
+            // Console.WriteLine("Media: {0}", avg);
+            // Console.WriteLine("Max: {0}", max);
+            // Console.WriteLine("Min: {0}", min);
+            //
+            // //respuesta pagina
+            // int total = 5;
+            // int[] numeros = new int[total];
+            //
+            // for (int i = 0; i < total; i++) 
+            // {
+            //     numeros[i] = int.Parse(Console.ReadLine());
+            // }
+            //
+            // int suma = 0,
+            //     media = 0,
+            //     max = int.MinValue,
+            //     min = int.MaxValue;
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     int num = numeros[i];
+            //
+            //     suma += num;
+            //
+            //     if (num > max) 
+            //     {
+            //         max = num;
+            //     }
+            //
+            //     if (num < min) 
+            //     {
+            //         min = num;
+            //     }
+            // }
+            //
+            // media = suma / total;
+            //
+            // Console.WriteLine("Suma: " + suma);
+            // Console.WriteLine("Media: " + media);
+            // Console.WriteLine("Max: " + max);
+            // Console.WriteLine("Min: " + min);
+            
+            #endregion
+            
+            //============================== Condiciones B ==================================//
+
+            #region Ejer_36 - Número repetido
+            //https://www.exercisescsharp.com/es/condiciones-b/numero-repetido
+
+            // Console.WriteLine("Ingrese Numero");
+            // int a = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese total de veces a repetir");
+            // int b = Convert.ToInt32(Console.ReadLine());
+            //
+            // for (int i = 0; i < b; i++)
+            // {
+            //     Console.Write(a);
             // }
 
             #endregion
