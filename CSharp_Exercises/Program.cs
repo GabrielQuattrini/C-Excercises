@@ -7,7 +7,7 @@ namespace CSharp_Exercises
         static void Main(string[] args)
         {
             //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-csharp
-            
+
             //============================= Introducción a C# ===============================//
 
             #region Ejer_1 - ¡Hola mundo!
@@ -788,7 +788,7 @@ namespace CSharp_Exercises
             #region Ejer_39 - Divisiones infinitas
 
             //https://www.exercisescsharp.com/es/condiciones-b/divisiones-infinitas
-            
+
             // int num1, num2;
             // do
             // {
@@ -814,8 +814,9 @@ namespace CSharp_Exercises
             #endregion
 
             #region Ejer_40 - Tablas de multiplicar infinitas
+
             // https://www.exercisescsharp.com/es/condiciones-b/tablas-de-multiplicar-infinitas
-           
+
             // int num1, num2;
             //
             // Console.WriteLine("ingrese 1er numero");
@@ -868,7 +869,7 @@ namespace CSharp_Exercises
             //         Console.WriteLine("Suspenso");
             //         break;
             // }
-            
+
             #endregion
 
             #region Ejer_42 - Estructuras repetitivas
@@ -900,7 +901,7 @@ namespace CSharp_Exercises
             //     Console.Write(aux1);
             //     aux1++;
             // } while (aux1<=num2);
-            
+
             #endregion
 
             #region Ejer_43 - Dígitos en un número
@@ -936,6 +937,7 @@ namespace CSharp_Exercises
             //============================== Condiciones C ==================================//
 
             #region Ejer_44 - Abecedario de char
+
             //https://www.exercisescsharp.com/es/condiciones-iii/abecedario-de-char
 
             // for (char i = 'A'; i <= 'Z'; i++)
@@ -991,7 +993,7 @@ namespace CSharp_Exercises
             //     Console.WriteLine("Es primo");
             // else
             //     Console.WriteLine("Es par");
-            
+
             #endregion
 
             #region Ejer_48 - Números impares en descendente
@@ -1055,6 +1057,7 @@ namespace CSharp_Exercises
             //     Console.Write("1 ");
             //     cambio -= 1;
             // }
+
             #endregion
 
             #region Ejer_50 - Operador condicional - "(?)"
@@ -1069,10 +1072,10 @@ namespace CSharp_Exercises
             // Console.WriteLine(x > 0 ? "A es positivo" : "A no es positivo");
             // Console.WriteLine(y > 0 ? "B es positivo" : "B no es positivo");
             // Console.WriteLine((x > 0) && (y > 0) ? "Ambos son positivos" : "Ambos no son positivos");
-            
+
             #endregion
 
-            #region Ejer_51 - Operador condicional anida
+            #region Ejer_51 - Operador condicional anidada
 
             //https://www.exercisescsharp.com/es/condiciones-iii/operador-condicional-anidado
 
@@ -1080,9 +1083,9 @@ namespace CSharp_Exercises
             // int b = Convert.ToInt32(Console.ReadLine());
             //
             // int cantidad = ((a > 0) && (b > 0)) ? 2 : ((a > 0) || (b > 0)) ? 1 : 0;
-            
+
             #endregion
-            
+
             //==============================  Geometría B ==================================//
 
             #region Ejer_52 - Dibujar un cuadrado hueco
@@ -1114,7 +1117,7 @@ namespace CSharp_Exercises
             #region Ejer_53 - Dibujar un rectángulo hueco
 
             //https://www.exercisescsharp.com/es/geometria-b/dibujar-rectangulo-hueco
-            
+
             // Console.WriteLine("ingrese numero con el cual pintar");
             // int x = Convert.ToInt32(Console.ReadLine());
             // Console.WriteLine("ingrese numero alto");
@@ -1144,7 +1147,7 @@ namespace CSharp_Exercises
             #region Ejer_54 - Dibujar un paralelogramo
 
             //https://www.exercisescsharp.com/es/geometria-b/dibujar-paralelogramo
-            
+
             // Console.WriteLine("ingrese numero alto");
             // int y = Convert.ToInt32(Console.ReadLine());
             // Console.WriteLine("ingrese numero ancho");
@@ -1166,28 +1169,464 @@ namespace CSharp_Exercises
             //
             //     Console.WriteLine();
             // }
+
             #endregion
 
             #region Ejer_55 - Dibujar una pirámide
 
             //https://www.exercisescsharp.com/es/geometria-b/dibujar-piramide
-            
-            Console.WriteLine("ingrese palabra");
-            string p = Console.ReadLine();
 
-            int a = p.Length/2;
-            int b = p.Length/2;
-            
-            
-            //TODO terminar codigo para su optimo funcionamiento 
-             for (int i = 1; i < p.Length+1/2 ; i++)
-             { 
-                 Console.WriteLine(p.Substring(a, i));
-                a--;
-                b++;
-            }
-             
+            // Console.WriteLine("ingrese palabra");
+            // string p = Console.ReadLine();
+            //
+            // int a = p.Length/2;
+            // int b = 1;
+            //
+            // //si el tamaño de la palabra es impar le agrego un espacio al final
+            // if (p.Length % 2 != 0)
+            // {
+            //     p += " ";
+            // }
+            //
+            //
+            // //imprimir la palabra de a pedacitos
+            // for (int i = 1; i < p.Length + 1 / 2; i++)
+            // {
+            //     int x = 0;
+            //     while (x<a)
+            //     {
+            //         Console.Write(" ");
+            //         x++;
+            //     }
+            //
+            //     if (a + b < p.Length)
+            //     {
+            //         Console.WriteLine(p.Substring(a, b));
+            //         a--;
+            //         b += 2;
+            //     }
+            // }
+
+            #endregion
+
+            //============================= Tipos de datos B ================================//
+
+            #region Ejer_56 - Comprobar vocales con switch
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/comprobar-vocales-con-switch
+            //
+            // Console.WriteLine("Ingrese una Letra");
+            // char l = Convert.ToChar(Console.ReadLine());
+            // //ToLower();
+            //
+            // switch (l)
+            // {
+            //     case 'a': 
+            //     case 'e': 
+            //     case 'i': 
+            //     case 'o': 
+            //     case 'u': Console.WriteLine("Vocal");
+            //         break;
+            //     default: Console.WriteLine("Otro simbolo");
+            //         break;
+            // }
+
+            #endregion
+
+            #region Ejer_57 - Comprobar números con excepciones
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/comprobar-numeros-con-excepciones
+
+            // Console.WriteLine("Ingrese text");
+            // try
+            // {
+            //     int l = Convert.ToInt32(Console.ReadLine());
+            //     Console.WriteLine("Es un Numero");
+            // }
+            // catch (Exception)
+            // {
+            //     Console.WriteLine("No es un numero");
+            // }
+
+            #endregion
+
+            #region Ejer_58 - Boolean y operador condicional
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/boolean-y-operador-condicional
+            // Console.WriteLine("ingrese 1er valor");
+            // int n1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("ingrese 2do valor");
+            // int n2 = Convert.ToInt32(Console.ReadLine());
+            //
+            // //respuesta 2
+            // bool ambos = ((n1 + n2) % 2 == 0 ? true : false);
+            // Console.WriteLine(ambos);
+
+            #endregion
+
+            #region Ejer_59 - Producto de factores primos
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/producto-de-factores-primos
+
+            // Console.WriteLine("Ingrese numero");
+            // int x = Convert.ToInt32(Console.ReadLine());
+            // int divisor = 2;
+            //
+            // while (x > 1)
+            // {
+            //     while (x % 2 == 0)
+            //     {
+            //         Console.Write(2 + "x");
+            //         x = x / 2;
+            //     }
+            //     divisor++;
+            // }
+            // Console.Write(1);
+
+            #endregion
+
+            #region Ejer_60 - Convertir número a Binario y Hexadecimal
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/convertir-numero-a-binario-y-hexadecimal
+
+            // int n;
+            // do
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     n = Convert.ToInt32(Console.ReadLine());
+            //     if (n!=0)
+            //     {
+            //         Console.WriteLine("Hexadecimal: {0}",Convert.ToString(n,16));//Hexadecimal
+            //         Console.WriteLine("Binario: {0}",Convert.ToString(n,2));//Binario
+            //     }
+            // } while (n!=0);
+
+            #endregion
+
+            #region Ejer_61 - Tabla hexadecimal del 0 al 255
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/tabla-hexadecimal-del-0-al-255
+            // int x = 0;
+            // for (int i = 0; i < 16; i++)
+            // {
+            //     for (int j = 0; j < 16; j++)
+            //     {
+            //         string value = Convert.ToString(x, 16);
+            //         Console.Write(value.Length==1 ? "0"+value+" " : value+" ");
+            //         x++;
+            //     }
+            //     Console.WriteLine();
+            // }
+
+            #endregion
+
+            #region Ejer_62 - struct
+
+            //https://www.exercisescsharp.com/es/tipos-de-datos-b/struct
+
+            // Console.WriteLine("Ingrese nombre");
+            // string name = Console.ReadLine();
+            // Console.WriteLine("Ingrese edad");
+            // int edad = Convert.ToInt32(Console.ReadLine());
+            //
+            // Person p = new Person(name,edad);
+            //
+            // Console.WriteLine("¡Hola {0}!", p.Nombre);
+
+            #endregion
+
+            //================================ Matrices =====================================//
+
+            #region Ejer_63 - Matriz en orden inverso - Array.Reverse
+
+            //https://www.exercisescsharp.com/es/matrices/matriz-orden-inverso
+            // int[] arr = new int [5];
+            //
+            // for (int i = 0; i < 5; i++)
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     arr[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            // Array.Reverse(arr);
+            // for (int i = 0; i < 5; i++)
+            // {
+            //     Console.Write("{0} ",arr[i]);
+            // }
+
+            #endregion
+
+            #region Ejer_64 - Buscar en una matriz de enteros
+
+            //https://www.exercisescsharp.com/es/matrices/buscar-matriz-de-enteros
+            //
+            // Console.WriteLine("Ingrese tamaño del arreglo");
+            // int tam = Convert.ToInt32(Console.ReadLine());
+            //
+            // int[] arr = new int[tam];
+            // for (int i = 0; i < tam; i++)
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     arr[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            //
+            // Console.WriteLine("---------------------");
+            // string n = "";//inicializo string
+            //
+            // do
+            // {
+            //     Console.WriteLine("Numero a Buscar");
+            //     n = Console.ReadLine();
+            //     int nToInt = Convert.ToInt32(n);
+            //
+            //     //devuelve el indice si encuantra el numero agregado dentro del arreglo
+            //     if (Array.BinarySearch(arr,nToInt) >= 0)
+            //     {
+            //         Console.WriteLine("¡El Numero {0} Existe!", n);
+            //     }
+            //     else
+            //     {
+            //         Console.WriteLine("¡El Numero {0} No Existe!", n);
+            //     }
+            //
+            // } while (n != "fin");
+
+
+            #endregion
+
+            #region Ejer_65 - Buscar números pares
+
+            //https://www.exercisescsharp.com/es/matrices/buscar-numeros-pares
+            // int total = 10;
+            // int[] arr = new int[total];
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine("Agrege Numero");
+            //     arr[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     if (arr[i]%2 ==0)
+            //     {
+            //         Console.Write("{0} ",arr[i]);
+            //     }
+            // }
+
+            #endregion
+
+            #region Ejer_66 - Buscar números positivos y negativos
+
+            //https://www.exercisescsharp.com/es/matrices/buscar-numeros-positivos-negativos
+            // int total = 10;
+            // int[] arr = new int [total];
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine("Agregar Numero");
+            //     arr[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            // Console.WriteLine("---------------------------");
+            //
+            // int sumPositivos = 0, cantPositivos = 0;
+            // int sumNegativos = 0, cantNegativos = 0;
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     if (arr[i] >= 0)
+            //     {
+            //         sumPositivos += arr[i];
+            //         cantPositivos++;
+            //     }
+            //     else
+            //     {
+            //         sumNegativos += arr[i];
+            //         cantNegativos++;
+            //     }
+            // }
+            //
+            // Console.WriteLine( cantNegativos!=0 ? "La media de Numeros Negativos es: " + sumNegativos /cantNegativos : "no hay Numeros Negativos");
+            // Console.WriteLine( cantPositivos!=0 ? "La media de Numeros Positivos es: " + sumPositivos /cantPositivos : "no hay Numeros Negativos");
+
+            #endregion
+
+            //TODO investigar funcionamiento de Banner y como replicarlo
+
+            #region Ejer_67 - Comando Banner en Unix
+
+            //https://www.exercisescsharp.com/es/matrices/comando-banner-en-unix
+
+
+            #endregion
+
+            #region Ejer_68 - Ordenamiento de burbuja
+
+            //https://www.exercisescsharp.com/es/matrices/ordenamiento-de-burbuja
+           
+            // int total = 10;
+            // int[] arr = new int[total];
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine("Agregar Numero");
+            //     arr[i] = Convert.ToInt32(Console.ReadLine());
+            // }
+            //
+            // for (int x = 0; x < total; x++)
+            // {
+            //     //   -1 es para no  llegar al final del arreglo
+            //     for (int indiceActual = 0; indiceActual < total - 1; indiceActual++)
+            //     {
+            //         int indiceSiguienteElemento = indiceActual + 1;
+            //         // Si el actual es mayor que el que le sigue a la derecha...
+            //         if (arr[indiceActual] > arr[indiceSiguienteElemento])
+            //         {
+            //             int temporal = arr[indiceActual];
+            //             arr[indiceActual] = arr[indiceSiguienteElemento];
+            //             arr[indiceSiguienteElemento] = temporal;
+            //         }
+            //     }
+            // }
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.Write("{0} ",arr[i]);
+            // }
+
+            #endregion
+
+            #region Ejer_69 - Matriz bidimensional 
+
+            //https://www.exercisescsharp.com/es/matrices/matriz-bidimensional
+            // int totalGrupo = 10;
+            // float[,] matiz = new float[totalGrupo,totalGrupo];
+            //
+            // for (int i = 0; i < 2; i++) //fila
+            // {
+            //     for (int j = 0; j < totalGrupo; j++)//columnas
+            //     {
+            //         Console.WriteLine("Ingrese Numero");
+            //         matiz[i,j] = Convert.ToInt32(Console.ReadLine());
+            //     }
+            // }
+            //
+            // float sumaNotas = 0;
+            // for (int i = 0; i < 2; i++)
+            // {
+            //     for (int j = 0; j < totalGrupo; j++)
+            //     {
+            //         sumaNotas += matiz[i, j];
+            //     }
+            //     Console.WriteLine("Promedio del Grupo {0}° : {1}",i+1,sumaNotas/totalGrupo);
+            // }
+
+            #endregion
+
+            #region Ejer_70 - Matriz bidimensional de caracteres
+
+            //https://www.exercisescsharp.com/es/matrices/matriz-bidimensional-de-caracteres
+            // char[,] matriz = new char[20, 70];
+            //
+            // for (int i = 0; i < 20; i++)
+            // {
+            //     for (int j = 0; j < 70; j++)
+            //     {
+            //         matriz[i, j] = 'x';
+            //     }
+            // }
+            //
+            // for (int i = 0; i < 20; i++)
+            // {
+            //     for (int j = 0; j < 70; j++)
+            //     {
+            //         Console.Write(matriz[i, j]);
+            //     }
+            //
+            //     Console.WriteLine();
+            // }
+  
+            #endregion
+
+            #region Ejer_71 - Matriz de struct
+
+            //https://www.exercisescsharp.com/es/matrices/matriz-de-struct
+            // Cars[] arr = new Cars[3];
+            //
+            // Cars auto = new Cars();
+            //
+            // for (int i = 0; i < 3; i++)
+            // {
+            //     Console.WriteLine("Modelo del Auto");
+            //     auto.Modelo = Console.ReadLine();
+            //     Console.WriteLine("Anio De Fabricacion");
+            //     auto.AnioFabricacion = Convert.ToInt32(Console.ReadLine());
+            //     arr[i] = auto;
+            // }
+            //
+            // for (int i = 0; i < 3 - 1; i++)
+            // {
+            //     for (int j = i + 1; j < 3; j++)
+            //     {
+            //         if (arr[i].AnioFabricacion > arr[j].AnioFabricacion)
+            //         {
+            //             var aux = arr[i];
+            //
+            //             arr[i] = arr[j];
+            //             arr[j] = aux;
+            //         }
+            //     }
+            // }
+            //
+            // for (int i = 0; i < 3; i++)
+            // {
+            //     arr[i].Imprimir();
+            // }
+       
             #endregion
         }
+
+        #region Structs
+
+        #region Ejer_60 - struct 
+
+        public struct Person
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+            public Person(string nombre, int edad)
+            {
+                this.Nombre = nombre;
+                this.Edad = edad;
+            }
+            
+            
+        }
+        
+        #endregion
+
+        #region Ejer_71 - Matriz de struct
+        
+        public struct Cars
+        {
+            public string Modelo;
+            public int AnioFabricacion;
+
+            public Cars(string modelo, int anioFabricacion)
+            {
+                Modelo = modelo;
+                AnioFabricacion = anioFabricacion;
+            }
+
+            public void Imprimir()
+            {
+                Console.WriteLine("Modelo: {0} Anio De Fabricacion: {1}",Modelo,AnioFabricacion);
+            }
+        }
+        
+
+        #endregion
+        
+        #endregion
+
     }
 }
