@@ -1,13 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Formats.Asn1;
+using System.Linq;
 
 namespace CSharp_Exercises
 {
     class Program
     {
+        //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-cshar
         static void Main(string[] args)
         {
-            //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-csharp
-
             //============================= Introducción a C# ===============================//
 
             #region Ejer_1 - ¡Hola mundo!
@@ -278,7 +280,6 @@ namespace CSharp_Exercises
             #region Ejer_19 - Media aritmética
 
             //https://www.exercisescsharp.com/es/aritmetica/media-aritmetica
-
             // Console.WriteLine("Ingrese 1er numero");
             // int num1 = Convert.ToInt32(Console.ReadLine());
             // Console.WriteLine("Ingrese 2do numero");
@@ -1583,6 +1584,333 @@ namespace CSharp_Exercises
             // }
        
             #endregion
+
+            #region Ejer_71 - Estadísticas matemáticas
+
+            //https://www.exercisescsharp.com/es/matrices/estadisticas-matematicas
+            // int total = 1000; //total de numeros permitidos
+            // int contador = 0; //pos de nemeros agregados
+            // int[] numeros = new int[total];
+            //
+            // int maxNumber = int.MinValue;
+            // int minNumber = int.MaxValue;
+            // int suma = 0;
+            //
+            // int n = 0; //variable aux para ingrese de numeros
+            // int x = 0; //variable para el menu
+            //
+            // do
+            // {
+            //     Console.WriteLine("Menu:");
+            //     Console.WriteLine("1. Añadir");
+            //     Console.WriteLine("2. Ver");
+            //     Console.WriteLine("3. Buscar");
+            //     Console.WriteLine("4. Estadísticas");
+            //     Console.WriteLine("5. Salir");
+            //     Console.WriteLine("Introduzca una opción (1-5):");
+            //
+            //     try
+            //     {
+            //         x = Convert.ToInt32(Console.ReadLine());
+            //     }
+            //     catch (FormatException)
+            //     {
+            //         Console.WriteLine("No es un Numero");
+            //     }
+            //     catch (OverflowException)
+            //     {
+            //         Console.WriteLine("El Numero supera el tamaño permitido");
+            //     }
+            //
+            //     switch (x)
+            //     {
+            //         case 1:
+            //             Console.WriteLine("Ingrese numero para agregar");
+            //             n = Convert.ToInt32(Console.ReadLine());
+            //
+            //             if (contador <= total)
+            //             {
+            //                 if (n > maxNumber)
+            //                     maxNumber = n;
+            //                 else if (n < minNumber) minNumber = n;
+            //
+            //                 numeros[contador] = n;
+            //                 suma += n;
+            //                 contador++;
+            //             }
+            //             else
+            //             {
+            //                 Console.WriteLine("No se Pueden ingresar mas numeros");
+            //             }
+            //
+            //             break;
+            //
+            //         case 2:
+            //             if (contador > 0)
+            //             {
+            //                 for (int i = 0; i < contador; i++)
+            //                 {
+            //                     Console.Write("{0} ", numeros[i]);
+            //                 }
+            //
+            //                 Console.WriteLine();
+            //             }
+            //
+            //             break;
+            //
+            //         case 3:
+            //             Console.WriteLine("Ingrese numero a buscar");
+            //             n = Convert.ToInt32(Console.ReadLine());
+            //             bool search = false;
+            //             
+            //             for (int i = 0; i < contador; i++)
+            //             {
+            //                 if (numeros[i] == n)
+            //                 {
+            //                     search = true;
+            //                 }
+            //             }
+            //             Console.WriteLine(search ? "Numero Encontrado": "Numero No Encontrado");
+            //             
+            //             break;
+            //             
+            //
+            //         case 4:
+            //             Console.WriteLine("Total de Numeros Agregados: {0}",contador);
+            //             Console.WriteLine("Suma Total de Valores: {0}",suma);
+            //             Console.WriteLine("Media aritmética: {0}", suma/contador);
+            //             Console.WriteLine("Valor Maximo: {0}", maxNumber);
+            //             Console.WriteLine("Valor Minimo: {0}",minNumber);
+            //             break;
+            //     }
+            //
+            //     Console.WriteLine("===============================");
+            // } while (x != 5);
+            #endregion
+
+            #region Ejer_72 - Circunferencia en pantalla
+
+            //https://www.exercisescsharp.com/es/matrices/circunferencia-en-pantalla
+           
+            // double x, y;
+            // double radio;
+            //
+            // for (int i = 0; i < 360; i += 5)
+            // {
+            //     radio = i * Math.PI / 180.0;
+            //
+            //     x = 35 + 8 * Math.Cos(radio);
+            //     y = 10 + 8 * Math.Sin(radio);
+            //
+            //     Console.SetCursorPosition((int)x, (int)y);
+            //     Console.Write("X");
+            // }
+            //
+            // Console.SetCursorPosition(1, 20);
+            
+
+            #endregion
+            
+            //================================ Funciones A =====================================//
+
+            #region Ejer_73 - Función saludo y despedida
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-saludo-despedida
+            // Saludar();
+            // Despedirse();
+
+            #endregion
+
+            #region Ejer_74 - Función con parámetros
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-con-parametros
+            // Console.WriteLine("Ingrese un Nombre");
+            // string name = Console.ReadLine();
+            // Saludar(name);
+
+            #endregion
+
+            #region Ejer_75 - Función que retorna valor
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-que-retorna-valor
+            // Console.WriteLine("Ingrese 1er Valor");
+            // int n1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese 2do Valor");
+            // int n2 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Resultado Suma: {0}", Sumar(n1, n2));
+
+            #endregion
+
+            #region Ejer_76 - Función contar espacios de un texto
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-contar-espacios-de-texto
+            // Console.WriteLine("Ingrese texto");
+            // string s = Console.ReadLine();
+            // Console.WriteLine("El total de espacios en blancos es: {0}", ContarEspacios(s));
+
+            #endregion
+
+            #region Ejer_77 - Función escribir texto con formato
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-escribir-texto-formato
+            // Console.WriteLine("Ingrese Texto");
+            // string s = Console.ReadLine();
+            // EscribirCentradoSubrayado(s);
+
+            #endregion
+
+            #region Ejer_78 - Función sumar una matriz de enteros
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-sumar-matriz-enteros
+            // int total = 5;
+            // int count = 0;
+            // int[] arr = new int[total];
+            //
+            // while (count < 5)
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     arr[count] = Convert.ToInt32(Console.ReadLine());
+            //     count++;
+            // }
+            //
+            // Console.WriteLine("Resultado de la Suma: {0}",Sumar(arr));
+            #endregion
+
+            #region Ejer_79 - Función calcular el doble de un número
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-calcular-doble-número
+            // Console.WriteLine("Ingrese Un Numero");
+            // int n = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("El Doble es: {0}", Doble(n));
+
+            #endregion
+
+            #region Ejer_80 - Función con parámetros por referencia
+
+            //https://www.exercisescsharp.com/es/funciones-a/funcion-parametros-referencia
+            // Console.WriteLine("Ingrese Numero");
+            // int n = Convert.ToInt32(Console.ReadLine());
+            // int origin = n;
+            // DobleReferencia(ref n);
+            // Console.WriteLine("Valor Original: {0}, valor editado por referencia: {1}",origin,n);
+
+            #endregion
+
+            #region Ejer_81 - Intercambiar parámetros por referencia
+
+            //https://www.exercisescsharp.com/es/funciones-a/intercambiar-parametros-referencia
+            // Console.WriteLine("Ingrese 1er Numero");
+            // int n1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese 2do Numero");
+            // int n2 = Convert.ToInt32(Console.ReadLine());
+            // Swap(ref n1,ref n2);
+            // Console.WriteLine("Numero Invertidos: 1er = {0}, 2do = {1}",n1,n2);
+            #endregion
+            
+            //================================ Funciones B =====================================//
+            
+            #region Ejer_82 - Función para modificar un caracter de un texto
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-modificar-caracter-de-texto
+            
+            // Console.WriteLine("Ingrese Palabra");
+            // string palabra = Console.ReadLine();
+            // Console.WriteLine("Ingrese Posicion que desea editar");
+            // int pos = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese Letra que colocar");
+            // char letra = Convert.ToChar(Console.ReadLine());
+            // Console.WriteLine();
+            // CambiarLetra(ref palabra, pos, letra);
+            // Console.WriteLine(palabra);
+
+            #endregion
+            
+            #region Ejer_83 - Función para sumar los dígitos de un número
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-sumar-digitos-de-numero
+            // Console.WriteLine("Ingrese cadena de Numero");
+            // string cadena = Console.ReadLine();
+            // Console.WriteLine("Resultado de la Suma es: {0}", SumarDigitos(cadena));
+            
+            #endregion
+
+            #region Ejer_84 - Función para mostrar una cadena invertida
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-mostrar-cadena-invertida
+            // Console.WriteLine("Ingrese Cadena de texto");
+            // string cadena = Console.ReadLine();
+            // InvertirCadena(cadena);
+
+            #endregion
+
+            #region Ejer_85 - Buscar el mayor valor en una matriz
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-buscar-mayor-valor-en-matriz
+            // int total = 5;
+            // int count = 0;
+            // int[] numbers = new int[5];
+            // while (count<total)
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     numbers[count] = Convert.ToInt32(Console.ReadLine());
+            //     count++;
+            // }
+            //
+            // Console.WriteLine("El Mayo de los Numeros Ingresados es: {0}",BuscarMayorValor(numbers));
+            #endregion
+            
+            #region Ejer_86 - Función para calcular la potencia de un número
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-calcular-potencia-de-número
+            // Console.WriteLine("Ingrese numero");
+            // int n1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese potencia");
+            // int n2 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("El Resultado de {0} potencia de {1} es: {2}",n1,n2, Potencia(n1,n2));
+
+            #endregion
+
+            #region Ejer_87 - Función para escribir texto con formato título
+
+            //https://www.exercisescsharp.com/es/funciones-b/funcion-escribir-texto-formato-titulo
+            // Console.WriteLine("Ingrese Texto");
+            // string s = Console.ReadLine();
+            // EscribirTitulo(s);
+
+            #endregion
+            
+            //================================ Funciones C =====================================//
+
+            #region Ejer_88 - Función para comprobar si un texto es alfabético
+    
+            //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-texto-alfabetico
+            // Console.WriteLine("Ingrese Texto");
+            // string text = Console.ReadLine();
+            // Console.WriteLine("Es Alfabetico: {0}",EsAlfabetico(text));
+            #endregion
+
+            #region Ejer_89 - Función para comprobar si un texto es número
+
+            //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-texto-es-numero
+            
+            // Console.WriteLine("Ingrese Texto");
+            // string text = Console.ReadLine();
+            // Console.WriteLine("Es Numerico: {0}",EsNumerico(text));
+
+            #endregion
+            
+            #region Ejer_90 - Calculadora con parámetros de Main
+
+            // Console.WriteLine("Ingrese 1er Valor");
+            // float n1 = Convert.ToSingle(Console.ReadLine());
+            // Console.WriteLine("Ingrese 2do Valor");
+            // float n2 = Convert.ToSingle(Console.ReadLine());
+            // Console.WriteLine("Ingrese Operacion");
+            // string operacion =Console.ReadLine();
+            //
+            // Calculadora(n1,n2,operacion);
+
+            #endregion
         }
 
         #region Structs
@@ -1598,8 +1926,7 @@ namespace CSharp_Exercises
                 this.Nombre = nombre;
                 this.Edad = edad;
             }
-            
-            
+
         }
         
         #endregion
@@ -1628,5 +1955,300 @@ namespace CSharp_Exercises
         
         #endregion
 
+        #region Functions
+        
+        //================================ Funciones A =====================================//
+
+        #region Ejer_73 - Función saludo y despedida
+
+        private static void Saludar()
+        {
+            Console.WriteLine("¡Hola!");
+        }
+
+       private static void Despedirse()
+        {
+            Console.WriteLine("¡Adios!");
+        }
+
+        #endregion
+
+        #region Ejer_74 - Función con parámetros
+
+        private static void Saludar(string name)
+        {
+            Console.WriteLine("¡Hola {0}!", name);
+        }
+
+        #endregion
+
+        #region Ejer_75 - Función que retorna valor
+
+        private static int Sumar(int n1, int n2)
+        {
+            return n1+n2;
+        }
+
+        #endregion
+
+        #region Ejer_76 - Función contar espacios de un texto
+
+        private static int ContarEspacios(String palabra)
+        {
+            int count = 0;
+            foreach (char letra in palabra)
+            {
+                if (letra==' ')
+                {
+                    count++;
+                } 
+            }
+            return count;
+        }
+
+        #endregion
+
+        #region Ejer_77 - Función escribir texto con formato
+
+        private static void EscribirCentradoSubrayado(string s)
+        {
+          OchentaEspacios();
+          Console.Write(s);
+          Console.WriteLine();
+          OchentaEspacios();
+          Subrayado(s);
+            
+        }
+
+        public static void OchentaEspacios()
+        {
+            for (int i = 0; i < 80; i++)
+            {
+                Console.Write(" ");
+            }
+        }
+
+        public static void Subrayado(string s)
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                Console.Write("-");
+            }
+        }
+
+        #endregion
+        
+        #region Ejer_78 - Función sumar una matriz de enteros
+
+        private static int Sumar(int[] numbers)
+        {
+            int count = 0;
+            foreach (int number in numbers)
+            {
+                count += number;
+            }
+            return count;
+        }
+
+        #endregion
+        
+        #region Ejer_79 - Función calcular el doble de un número
+
+        private static int Doble(int n)
+        {
+            return n * 2;
+        }
+
+        #endregion
+
+        #region Ejer_80 - Función con parámetros por referencia
+
+        private static void DobleReferencia(ref int n)
+        {
+            n += n;
+        }
+
+        #endregion
+        
+        #region Ejer_81 - Intercambiar parámetros por referencia
+
+        private static void Swap(ref int n1, ref int n2)
+        {
+            int aux = n1;
+            n1 = n2;
+            n2 = aux;
+        }
+
+
+        #endregion
+        
+        //================================ Funciones B =====================================//
+
+        #region Ejer_82 - Función para modificar un caracter de un texto
+
+        private static void CambiarLetra(ref string palabra, int pos, char l)
+        {
+            palabra=palabra.Remove(pos);
+            palabra=palabra.Insert(pos, l.ToString());
+        }
+
+        #endregion
+
+        #region Ejer_83 - Función para sumar los dígitos de un número
+
+        private static int SumarDigitos(string cadena)
+        {
+            int count = 0;
+            for (int i = 0; i < cadena.Length; i++)
+            {
+                count += Convert.ToInt16(cadena.Substring(i,1));
+            }
+
+            return count;
+        }
+
+        #endregion
+
+        #region Ejer_84 - Función para mostrar una cadena invertida
+
+        private static void InvertirCadena(string cadena)
+        {
+            string textInvert = string.Empty;
+
+            for (int i = cadena.Length-1; i >= 0; i--)
+            {
+                textInvert += cadena.Substring(i, 1);
+            }
+
+            Console.WriteLine(textInvert);
+        }
+
+        #endregion
+        
+        #region Ejer_85 - Buscar el mayor valor en una matriz
+
+        private static int BuscarMayorValor(int[] numbers)
+        {
+            int max = 0;
+            foreach (int number in numbers)
+            {
+                if (number > max)
+                    max = number;
+            }
+
+            return max;
+        }
+
+        #endregion
+
+        #region Ejer_86 - Función para calcular la potencia de un número
+
+        private static int Potencia(int n1, int n2)
+        {
+            int result = n1;
+            for (int i = 1; i < n2; i++)
+            {
+                result *= n1;
+            }
+
+            return result;
+        }
+
+        #endregion
+        
+        #region Ejer_87 - Función para escribir texto con formato título
+
+        private static void EscribirTitulo(string text)
+        {
+            Console.WriteLine("---------------------");
+            foreach (char letra in text)
+            {
+                Console.Write("{0} ",char.ToUpper(letra));
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("---------------------");
+        }
+
+        #endregion
+        
+        //================================ Funciones C =====================================//
+        
+        #region Ejer_88 - Función para comprobar si un texto es alfabético
+        
+            private static bool EsAlfabetico(string text)
+            {
+                bool alfabetico = true;
+                text = text.ToUpper();
+                foreach (char c in text)
+                {
+                    if ( !(c > 'A' && c < 'Z'))
+                        alfabetico = false;
+                }
+                return alfabetico;
+            }
+
+        #endregion
+
+        #region Ejer_89 - Función para comprobar si un texto es número
+
+            private static bool EsNumerico(string text)
+            {
+                bool numerico = true;
+
+                foreach (char l in text)
+                {
+                    if (!(l >= '0' && l <= '9'))
+                    {
+                        numerico = false;
+                    }
+                }
+
+                return numerico;
+            }
+
+        #endregion
+
+        #region Ejer_90 - Calculadora con parámetros de Main
+
+        private static void Calculadora(float n1, float n2, string operacion)
+        {
+            switch (operacion)
+            {
+                case "+":
+                    Console.WriteLine(Suma(n1,n2)); 
+                    break;
+                case "-":
+                    Console.WriteLine(Resta(n1,n2)); 
+                    break;
+                case "*":
+                    Console.WriteLine(Multiplicacion(n1,n2)); 
+                    break;
+                case "/":
+                    Console.WriteLine(Divicion(n1,n2)); 
+                    break;
+                default: Console.WriteLine("No hay opercion valida");
+                    break;
+            }
+        }
+        private static float Suma(float n1, float n2)
+        {
+            return n1 + n2;
+        }
+        private static float Resta(float n1, float n2)
+        {
+            return n1 - n2;
+        }
+        private static float Multiplicacion(float n1, float n2)
+        {
+            return n1 * n2;
+        }
+        private static float Divicion(float n1, float n2)
+        {
+            return n1 / n2;
+        }
+        #endregion
+        
+        #endregion
     }
 }
