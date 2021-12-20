@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Formats.Asn1;
+using System.IO;
 using System.Linq;
 
 namespace CSharp_Exercises
@@ -1463,7 +1464,7 @@ namespace CSharp_Exercises
             #region Ejer_68 - Ordenamiento de burbuja
 
             //https://www.exercisescsharp.com/es/matrices/ordenamiento-de-burbuja
-           
+
             // int total = 10;
             // int[] arr = new int[total];
             //
@@ -1496,7 +1497,7 @@ namespace CSharp_Exercises
 
             #endregion
 
-            #region Ejer_69 - Matriz bidimensional 
+            #region Ejer_69 - Matriz bidimensional
 
             //https://www.exercisescsharp.com/es/matrices/matriz-bidimensional
             // int totalGrupo = 10;
@@ -1545,7 +1546,7 @@ namespace CSharp_Exercises
             //
             //     Console.WriteLine();
             // }
-  
+
             #endregion
 
             #region Ejer_71 - Matriz de struct
@@ -1582,7 +1583,7 @@ namespace CSharp_Exercises
             // {
             //     arr[i].Imprimir();
             // }
-       
+
             #endregion
 
             #region Ejer_71 - Estadísticas matemáticas
@@ -1686,12 +1687,13 @@ namespace CSharp_Exercises
             //
             //     Console.WriteLine("===============================");
             // } while (x != 5);
+
             #endregion
 
             #region Ejer_72 - Circunferencia en pantalla
 
             //https://www.exercisescsharp.com/es/matrices/circunferencia-en-pantalla
-           
+
             // double x, y;
             // double radio;
             //
@@ -1707,10 +1709,10 @@ namespace CSharp_Exercises
             // }
             //
             // Console.SetCursorPosition(1, 20);
-            
+
 
             #endregion
-            
+
             //================================ Funciones A =====================================//
 
             #region Ejer_73 - Función saludo y despedida
@@ -1774,6 +1776,7 @@ namespace CSharp_Exercises
             // }
             //
             // Console.WriteLine("Resultado de la Suma: {0}",Sumar(arr));
+
             #endregion
 
             #region Ejer_79 - Función calcular el doble de un número
@@ -1805,14 +1808,15 @@ namespace CSharp_Exercises
             // int n2 = Convert.ToInt32(Console.ReadLine());
             // Swap(ref n1,ref n2);
             // Console.WriteLine("Numero Invertidos: 1er = {0}, 2do = {1}",n1,n2);
+
             #endregion
-            
+
             //================================ Funciones B =====================================//
-            
+
             #region Ejer_82 - Función para modificar un caracter de un texto
 
             //https://www.exercisescsharp.com/es/funciones-b/funcion-modificar-caracter-de-texto
-            
+
             // Console.WriteLine("Ingrese Palabra");
             // string palabra = Console.ReadLine();
             // Console.WriteLine("Ingrese Posicion que desea editar");
@@ -1824,14 +1828,14 @@ namespace CSharp_Exercises
             // Console.WriteLine(palabra);
 
             #endregion
-            
+
             #region Ejer_83 - Función para sumar los dígitos de un número
 
             //https://www.exercisescsharp.com/es/funciones-b/funcion-sumar-digitos-de-numero
             // Console.WriteLine("Ingrese cadena de Numero");
             // string cadena = Console.ReadLine();
             // Console.WriteLine("Resultado de la Suma es: {0}", SumarDigitos(cadena));
-            
+
             #endregion
 
             #region Ejer_84 - Función para mostrar una cadena invertida
@@ -1857,8 +1861,9 @@ namespace CSharp_Exercises
             // }
             //
             // Console.WriteLine("El Mayo de los Numeros Ingresados es: {0}",BuscarMayorValor(numbers));
+
             #endregion
-            
+
             #region Ejer_86 - Función para calcular la potencia de un número
 
             //https://www.exercisescsharp.com/es/funciones-b/funcion-calcular-potencia-de-número
@@ -1878,27 +1883,28 @@ namespace CSharp_Exercises
             // EscribirTitulo(s);
 
             #endregion
-            
+
             //================================ Funciones C =====================================//
 
             #region Ejer_88 - Función para comprobar si un texto es alfabético
-    
+
             //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-texto-alfabetico
             // Console.WriteLine("Ingrese Texto");
             // string text = Console.ReadLine();
             // Console.WriteLine("Es Alfabetico: {0}",EsAlfabetico(text));
+
             #endregion
 
             #region Ejer_89 - Función para comprobar si un texto es número
 
             //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-texto-es-numero
-            
+
             // Console.WriteLine("Ingrese Texto");
             // string text = Console.ReadLine();
             // Console.WriteLine("Es Numerico: {0}",EsNumerico(text));
 
             #endregion
-            
+
             #region Ejer_90 - Calculadora con parámetros de Main
 
             //---------------------------------------------------//
@@ -1924,7 +1930,7 @@ namespace CSharp_Exercises
             //         break;
             // }
             //---------------------------------------------------//
-            
+
             // Console.WriteLine("Ingrese 1er Valor");
             // float n1 = Convert.ToSingle(Console.ReadLine());
             // Console.WriteLine("Ingrese 2do Valor");
@@ -1933,15 +1939,15 @@ namespace CSharp_Exercises
             // string operacion =Console.ReadLine();
             //
             // Calculadora(n1,n2,operacion);
-            
+
             #endregion
 
-            #region Ejer_90 - Retornar valor desde Main 
+            #region Ejer_90 - Retornar valor desde Main
 
             //https://www.exercisescsharp.com/es/funciones-c/retornar-valor-desde-main
-            
+
             //Console.WriteLine(CalculadoraInfo(args));
-            
+
             #endregion
 
             #region Ejer_91 - Buscar el mínimo y máximo en un array
@@ -1965,7 +1971,7 @@ namespace CSharp_Exercises
             // Console.WriteLine("El valor maximo agregados es: {0}, el valor minimo es: {1}",max,min);
 
             #endregion
-            
+
             #region Ejer_92 - Función para comprobar palíndromo
 
             //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-palindromo
@@ -1975,7 +1981,7 @@ namespace CSharp_Exercises
             // Console.WriteLine(Palindromo(cadena));
 
             #endregion
-            
+
             //================================ Recursividad =====================================//
 
             #region Ejer_93 - Calcular una potencia de manera recursiva
@@ -1999,6 +2005,7 @@ namespace CSharp_Exercises
             // int n2 = Convert.ToInt32(Console.ReadLine());
             //
             // Console.WriteLine(MultiplicarRecursivo(n1,n2));
+
             #endregion
 
             #region Ejer_95 - Calcular números de la serie de Fibonacci
@@ -2029,7 +2036,7 @@ namespace CSharp_Exercises
             // Console.WriteLine(InvertirRecursivo(text));
 
             #endregion
-            
+
             #region Ejer_98 - Comprobar palíndromo de forma recursiva
 
             //https://www.exercisescsharp.com/es/recursividad/comprobar-palindromo-de-forma-recursiva
@@ -2040,6 +2047,8 @@ namespace CSharp_Exercises
             //
 
             #endregion
+
+            //================================ POO =====================================//
 
             #region Ejer_99 - Primera clase y método ToString()
 
@@ -2065,31 +2074,193 @@ namespace CSharp_Exercises
 
             #region Ejer_100 - Constructores y destructores
 
-            int total = 3;
-            Persona_Ejer_100[] personas = new Persona_Ejer_100[total];
- 
-            for (int i = 0; i < total; i++)
-            {
-                personas[i] = new Persona_Ejer_100(Console.ReadLine());
-            }
-
-            for (int i = 0; i < total; i++)
-            {
-                Console.WriteLine(personas[i].ToString());
-            }
+            // int total = 3;
+            // Persona_Ejer_100[] personas = new Persona_Ejer_100[total];
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     personas[i] = new Persona_Ejer_100(Console.ReadLine());
+            // }
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine(personas[i].ToString());
+            // }
 
             #endregion
 
+            #region Ejer_101 - Clase persona, estudiante y profesor
+
+            //https://www.exercisescsharp.com/es/poo/clase-persona-estudiante-profesor
+
+            // Console.WriteLine("Ingrese Nombre Persona");
+            // string name = Console.ReadLine();
+            // Console.WriteLine("Ingrese Edad");
+            // int edadPerson = Convert.ToInt32(Console.ReadLine());
+            //     
+            // Console.WriteLine("Ingrese Nombre Estudiante");
+            // string nameEstudent = Console.ReadLine();
+            // Console.WriteLine("Ingrese Edad Estudiante");
+            // int edadEstudent = Convert.ToInt32(Console.ReadLine());
+            //     
+            // Console.WriteLine("Ingrese Nombre Profesor");
+            // string nameTeacher = Console.ReadLine();
+            // Console.WriteLine("Ingrese Edad Profesor");
+            // int edadTeacher = Convert.ToInt32(Console.ReadLine());
+            //     
+            // //----------------------------------------------------//
+            // PersonaPadre p = new PersonaPadre(name, edadPerson);
+            // p.Saludar();
+            // //----------------------------------------------------//
+            // Estudiante e = new Estudiante(nameEstudent, edadEstudent);
+            // e.Saludar();
+            // e.Estudiar();
+            // e.VerEdad();
+            // //----------------------------------------------------//
+            // Profesor t = new Profesor(nameTeacher, edadTeacher);
+            // t.Saludar();
+            // t.Explicar();
+
+            #endregion
+
+            #region Ejer_102 - Clase álbum de fotos
+
+            //https://www.exercisescsharp.com/es/poo/clase-album-de-fotos
+
+            // AlbumFotos a1 = new AlbumFotos();
+            // Console.WriteLine("Album constructor predeterminado");
+            // Console.WriteLine(a1.GetNumerosDePaginas());
+            // Console.WriteLine();
+            // Console.WriteLine("Album constructor Especifico");
+            // Console.WriteLine("ingrese tamaño");
+            // int cant = Convert.ToInt32(Console.ReadLine());
+            // AlbumFotos a2 = new AlbumFotos(cant);
+            // Console.WriteLine(a2.GetNumerosDePaginas());
+            // Console.WriteLine();
+            // SuperAlbumFotos a3 = new SuperAlbumFotos();
+            // Console.WriteLine("Super Album de fotos");
+            // Console.WriteLine(a3.GetNumerosDePaginas());
+
+            #endregion
+
+            #region Ejer_103 - Herencia de objetos
+
+            //https://www.exercisescsharp.com/es/poo/herencia-de-objetos
+
+            // int total = 3;
+            // PersonaEjer_103[] personas = new PersonaEjer_103[total];
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     if (i == 0)
+            //     {
+            //         Console.WriteLine("Ingrese Nombre");
+            //         string name = Console.ReadLine();
+            //         Console.WriteLine("ingrese edad");
+            //         int edad = Convert.ToInt32(Console.ReadLine());
+            //         personas[i] = new ProfesorEjer_103(name,edad);
+            //     }
+            //     else
+            //     {
+            //         Console.WriteLine("Ingrese Nombre");
+            //         string name = Console.ReadLine();
+            //         Console.WriteLine("ingrese edad");
+            //         int edad = Convert.ToInt32(Console.ReadLine());
+            //         personas[i] = new EstudianteEjer_103(name,edad);
+            //     }
+            // }
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     if (i == 0)
+            //     {
+            //         ((ProfesorEjer_103)personas[i]).Explicar();
+            //
+            //     }
+            //     else
+            //     {
+            //         ((EstudianteEjer_103)personas[i]).Estudiar();
+            //     }
+            // }
+
+            #endregion
+
+            #region Ejer_104 - Formas - Diagrama de clases
+
+            //https://www.exercisescsharp.com/es/poo/formas-diagrama-de-clases
+
+            #endregion
+
+            #region Ejer_105 - Interfaces
+
+            //https://www.exercisescsharp.com/es/poo/clases-abstractas   
+
+            // Perro perro = new Perro();           
+            //perro.SetNombre(Console.ReadLine()); 
+            //Console.WriteLine(perro.GetNombre());
+            //perro.Comer();
+
+            #endregion
+            
+            //======================== Archivos de texto A ==========================// 
+
+            #region Ejer_106 - Leer un archivo de texto
+            
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto
+            
+            // string linea;
+            // string nombreArchivo = "input.txt";
+            //
+            // StreamReader sr = new StreamReader(nombreArchivo);
+            // linea = sr.ReadLine();
+            //
+            // while (linea != null)
+            // {
+            //     Console.WriteLine(linea);
+            //     linea = sr.ReadLine();
+            // }
+            // sr.Close();
+
+            #endregion
+
+            #region Ejer_107 - Leer un archivo de texto con using
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto-con-using
+            
+            // string linea;
+            // string nombreArchivo = "input.txt";
+            //
+            // using (StreamReader sr = new StreamReader(nombreArchivo))
+            // {
+            //     linea = sr.ReadLine();
+            //
+            //     while (linea != null)
+            //     {
+            //         Console.WriteLine(linea);
+            //         linea = sr.ReadLine();
+            //     }
+            // }
+
+            #endregion
+
+            #region Ejer_108 - Leer un archivo de texto con File
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto-con-file
+            
+            
+
+            #endregion
         }
 
         #region Structs
 
-        #region Ejer_60 - struct 
+        #region Ejer_60 - struct
 
         public struct Person
         {
             public string Nombre { get; set; }
             public int Edad { get; set; }
+
             public Person(string nombre, int edad)
             {
                 this.Nombre = nombre;
@@ -2097,11 +2268,11 @@ namespace CSharp_Exercises
             }
 
         }
-        
+
         #endregion
 
         #region Ejer_71 - Matriz de struct
-        
+
         public struct Cars
         {
             public string Modelo;
@@ -2115,17 +2286,17 @@ namespace CSharp_Exercises
 
             public void Imprimir()
             {
-                Console.WriteLine("Modelo: {0} Anio De Fabricacion: {1}",Modelo,AnioFabricacion);
+                Console.WriteLine("Modelo: {0} Anio De Fabricacion: {1}", Modelo, AnioFabricacion);
             }
         }
-        
+
 
         #endregion
-        
+
         #endregion
 
         #region Functions
-        
+
         //================================ Funciones A =====================================//
 
         #region Ejer_73 - Función saludo y despedida
@@ -2135,7 +2306,7 @@ namespace CSharp_Exercises
             Console.WriteLine("¡Hola!");
         }
 
-       private static void Despedirse()
+        private static void Despedirse()
         {
             Console.WriteLine("¡Adios!");
         }
@@ -2155,7 +2326,7 @@ namespace CSharp_Exercises
 
         private static int Sumar(int n1, int n2)
         {
-            return n1+n2;
+            return n1 + n2;
         }
 
         #endregion
@@ -2167,11 +2338,12 @@ namespace CSharp_Exercises
             int count = 0;
             foreach (char letra in palabra)
             {
-                if (letra==' ')
+                if (letra == ' ')
                 {
                     count++;
-                } 
+                }
             }
+
             return count;
         }
 
@@ -2181,12 +2353,12 @@ namespace CSharp_Exercises
 
         private static void EscribirCentradoSubrayado(string s)
         {
-          OchentaEspacios();
-          Console.Write(s);
-          Console.WriteLine();
-          OchentaEspacios();
-          Subrayado(s);
-            
+            OchentaEspacios();
+            Console.Write(s);
+            Console.WriteLine();
+            OchentaEspacios();
+            Subrayado(s);
+
         }
 
         public static void OchentaEspacios()
@@ -2206,7 +2378,7 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #region Ejer_78 - Función sumar una matriz de enteros
 
         private static int Sumar(int[] numbers)
@@ -2216,11 +2388,12 @@ namespace CSharp_Exercises
             {
                 count += number;
             }
+
             return count;
         }
 
         #endregion
-        
+
         #region Ejer_79 - Función calcular el doble de un número
 
         private static int Doble(int n)
@@ -2238,7 +2411,7 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #region Ejer_81 - Intercambiar parámetros por referencia
 
         private static void Swap(ref int n1, ref int n2)
@@ -2250,15 +2423,15 @@ namespace CSharp_Exercises
 
 
         #endregion
-        
+
         //================================ Funciones B =====================================//
 
         #region Ejer_82 - Función para modificar un caracter de un texto
 
         private static void CambiarLetra(ref string palabra, int pos, char l)
         {
-            palabra=palabra.Remove(pos);
-            palabra=palabra.Insert(pos, l.ToString());
+            palabra = palabra.Remove(pos);
+            palabra = palabra.Insert(pos, l.ToString());
         }
 
         #endregion
@@ -2270,7 +2443,7 @@ namespace CSharp_Exercises
             int count = 0;
             for (int i = 0; i < cadena.Length; i++)
             {
-                count += Convert.ToInt16(cadena.Substring(i,1));
+                count += Convert.ToInt16(cadena.Substring(i, 1));
             }
 
             return count;
@@ -2284,7 +2457,7 @@ namespace CSharp_Exercises
         {
             string textInvert = string.Empty;
 
-            for (int i = cadena.Length-1; i >= 0; i--)
+            for (int i = cadena.Length - 1; i >= 0; i--)
             {
                 textInvert += cadena.Substring(i, 1);
             }
@@ -2293,7 +2466,7 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #region Ejer_85 - Buscar el mayor valor en una matriz
 
         private static int BuscarMayorValor(int[] numbers)
@@ -2324,7 +2497,7 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #region Ejer_87 - Función para escribir texto con formato título
 
         private static void EscribirTitulo(string text)
@@ -2332,7 +2505,7 @@ namespace CSharp_Exercises
             Console.WriteLine("---------------------");
             foreach (char letra in text)
             {
-                Console.Write("{0} ",char.ToUpper(letra));
+                Console.Write("{0} ", char.ToUpper(letra));
             }
 
             Console.WriteLine();
@@ -2340,83 +2513,90 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         //================================ Funciones C =====================================//
-        
+
         #region Ejer_88 - Función para comprobar si un texto es alfabético
-        
-            private static bool EsAlfabetico(string text)
+
+        private static bool EsAlfabetico(string text)
+        {
+            bool alfabetico = true;
+            text = text.ToUpper();
+            foreach (char c in text)
             {
-                bool alfabetico = true;
-                text = text.ToUpper();
-                foreach (char c in text)
-                {
-                    if ( !(c > 'A' && c < 'Z'))
-                        alfabetico = false;
-                }
-                return alfabetico;
+                if (!(c > 'A' && c < 'Z'))
+                    alfabetico = false;
             }
+
+            return alfabetico;
+        }
 
         #endregion
 
         #region Ejer_89 - Función para comprobar si un texto es número
 
-            private static bool EsNumerico(string text)
+        private static bool EsNumerico(string text)
+        {
+            bool numerico = true;
+
+            foreach (char l in text)
             {
-                bool numerico = true;
-
-                foreach (char l in text)
+                if (!(l >= '0' && l <= '9'))
                 {
-                    if (!(l >= '0' && l <= '9'))
-                    {
-                        numerico = false;
-                    }
+                    numerico = false;
                 }
-
-                return numerico;
             }
+
+            return numerico;
+        }
 
         #endregion
 
         #region Ejer_90 - Calculadora con parámetros de Main
 
-        
+
         private static void Calculadora(float n1, float n2, string operacion)
         {
             switch (operacion)
             {
                 case "+":
-                    Console.WriteLine(Suma(n1,n2)); 
+                    Console.WriteLine(Suma(n1, n2));
                     break;
                 case "-":
-                    Console.WriteLine(Resta(n1,n2)); 
+                    Console.WriteLine(Resta(n1, n2));
                     break;
                 case "*":
-                    Console.WriteLine(Multiplicacion(n1,n2)); 
+                    Console.WriteLine(Multiplicacion(n1, n2));
                     break;
                 case "/":
-                    Console.WriteLine(Divicion(n1,n2)); 
+                    Console.WriteLine(Divicion(n1, n2));
                     break;
-                default: Console.WriteLine("No hay opercion valida");
+                default:
+                    Console.WriteLine("No hay opercion valida");
                     break;
             }
         }
+
         private static float Suma(float n1, float n2)
         {
             return n1 + n2;
         }
+
         private static float Resta(float n1, float n2)
         {
             return n1 - n2;
         }
+
         private static float Multiplicacion(float n1, float n2)
         {
             return n1 * n2;
         }
+
         private static float Divicion(float n1, float n2)
         {
             return n1 / n2;
         }
+
         #endregion
 
         #region Ejer_90 - Retornar valor desde Main
@@ -2438,6 +2618,7 @@ namespace CSharp_Exercises
             {
                 return 2;
             }
+
             int num1, num2;
 
             try
@@ -2452,10 +2633,10 @@ namespace CSharp_Exercises
 
             return 0;
         }
-        
+
 
         #endregion
-        
+
         #region Ejer_91 - Buscar el mínimo y máximo en un array
 
         private static void BuscarMinMax(ref int max, ref int min, int[] arr)
@@ -2467,7 +2648,7 @@ namespace CSharp_Exercises
                 if (n < min)
                     min = n;
             }
-            
+
         }
 
         #endregion
@@ -2481,16 +2662,18 @@ namespace CSharp_Exercises
             for (int i = 0; i < j; i++)
             {
                 if (cadena[j] != cadena[i])
-                    {
-                        return false;
-                    }
+                {
+                    return false;
+                }
+
                 j--;
             }
+
             return true;
         }
 
         #endregion
-        
+
         //================================ Funciones C =====================================//
 
         #region Ejer_93 - Calcular una potencia de manera recursiva
@@ -2503,13 +2686,13 @@ namespace CSharp_Exercises
             }
             else
             {
-                return num*PotenciaRecursiva(num, exponente - 1);
+                return num * PotenciaRecursiva(num, exponente - 1);
             }
 
         }
 
         #endregion
-        
+
         #region Ejer_94 - Crear una función recursiva para multiplicar
 
         private static int MultiplicarRecursivo(int n1, int n2)
@@ -2530,13 +2713,13 @@ namespace CSharp_Exercises
 
         private static int Fibonacci(int n)
         {
-            if (n==1||n==2)
+            if (n == 1 || n == 2)
             {
                 return 1;
             }
             else
             {
-                return Fibonacci( n-1) + Fibonacci( n-2);
+                return Fibonacci(n - 1) + Fibonacci(n - 2);
             }
 
         }
@@ -2547,7 +2730,7 @@ namespace CSharp_Exercises
 
         public static int Factorial(int n)
         {
-            if (n==1)
+            if (n == 1)
             {
                 return 1;
             }
@@ -2559,7 +2742,7 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #region Ejer_97 - Invertir una cadena de forma recursiva
 
         private static string InvertirRecursivo(string text)
@@ -2568,10 +2751,10 @@ namespace CSharp_Exercises
             {
                 return text;
             }
- 
+
             char primeraLetra = text[0];
             string resto = text.Substring(1);
- 
+
             return InvertirRecursivo(resto) + primeraLetra;
         }
 
@@ -2599,13 +2782,13 @@ namespace CSharp_Exercises
         }
 
         #endregion
-        
+
         #endregion
 
         #region Class
-           
+
         //================================ POO =====================================//
-        
+
         #region Ejer_99 - Primera clase y método ToString()
 
         public class Persona
@@ -2614,7 +2797,7 @@ namespace CSharp_Exercises
 
             public override string ToString()
             {
-                return "¡Hola Mi Nombre es "+ Nombre+"!";
+                return "¡Hola Mi Nombre es " + Nombre + "!";
             }
         }
 
@@ -2633,8 +2816,9 @@ namespace CSharp_Exercises
 
             public override string ToString()
             {
-                return "¡Hola Mi Nombre es "+ Nombre+"!";
+                return "¡Hola Mi Nombre es " + Nombre + "!";
             }
+
             ~Persona_Ejer_100()
             {
                 Nombre = string.Empty;
@@ -2643,6 +2827,388 @@ namespace CSharp_Exercises
 
         #endregion
 
+        #region Ejer_101 - Clase persona, estudiante y profesor
+
+        public class EstudianteProfesorTest
+        {
+            public void Main(string[] args)
+            {
+                Console.WriteLine("Ingrese Nombre Persona");
+                string name = Console.ReadLine();
+                Console.WriteLine("Ingrese Edad");
+                int edadPerson = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Ingrese Nombre Estudiante");
+                string nameEstudent = Console.ReadLine();
+                Console.WriteLine("Ingrese Edad Estudiante");
+                int edadEstudent = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Ingrese Nombre Profesor");
+                string nameTeacher = Console.ReadLine();
+                Console.WriteLine("Ingrese Edad Profesor");
+                int edadTeacher = Convert.ToInt32(Console.ReadLine());
+
+                //----------------------------------------------------//
+                PersonaPadre p = new PersonaPadre(name, edadPerson);
+                p.Saludar();
+                //----------------------------------------------------//
+                Estudiante e = new Estudiante(nameEstudent, edadEstudent);
+                p.Saludar();
+                e.Estudiar();
+                //----------------------------------------------------//
+                Profesor t = new Profesor(nameTeacher, edadTeacher);
+                t.Saludar();
+                t.Explicar();
+            }
+        }
+
+        public class PersonaPadre
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+
+            public PersonaPadre(string nombre, int edad)
+            {
+                Nombre = nombre;
+                Edad = edad;
+            }
+
+            public void Saludar()
+            {
+                Console.WriteLine("Hola");
+            }
+
+            public void SetEdad(int edad)
+            {
+                Edad = edad;
+            }
+        }
+
+        public class Estudiante : PersonaPadre
+        {
+            public Estudiante(string nombre, int edad) : base(nombre, edad)
+            {
+            }
+
+            public void Estudiar()
+            {
+                Console.WriteLine("Estoy Estudiando");
+            }
+
+            public void VerEdad()
+            {
+                Console.WriteLine("Mi Edad es " + Edad);
+            }
+
+        }
+
+        public class Profesor : PersonaPadre
+        {
+            public Profesor(string nombre, int edad) : base(nombre, edad)
+            {
+            }
+
+            public void Explicar()
+            {
+                Console.WriteLine("Estoy Explicando");
+            }
+
+        }
+
+        #endregion
+
+        #region Ejer_102 - Clase álbum de fotos
+
+        //https://www.exercisescsharp.com/es/poo/clase-album-de-fotos
+
+        public class AlbumTest
+        {
+            public void Main()
+            {
+                AlbumFotos a1 = new AlbumFotos();
+                Console.WriteLine("Album constructor predeterminado");
+                Console.WriteLine(a1.GetNumerosDePaginas());
+                Console.WriteLine();
+                Console.WriteLine("Album constructor Especifico");
+                Console.WriteLine("ingrese tamaño");
+                int cant = Convert.ToInt32(Console.ReadLine());
+                AlbumFotos a2 = new AlbumFotos(cant);
+                Console.WriteLine(a2.GetNumerosDePaginas());
+                Console.WriteLine();
+                Console.WriteLine("Super Album de fotos");
+                SuperAlbumFotos a3 = new SuperAlbumFotos();
+                Console.WriteLine(a3.GetNumerosDePaginas());
+
+            }
+        }
+
+        public class AlbumFotos
+        {
+            private int numPaginas { get; set; }
+
+            public AlbumFotos()
+            {
+                this.numPaginas = 16;
+            }
+
+            public AlbumFotos(int numPaginas)
+            {
+                this.numPaginas = numPaginas;
+            }
+
+            public int GetNumerosDePaginas()
+            {
+                return numPaginas;
+            }
+        }
+
+        public class SuperAlbumFotos : AlbumFotos
+        {
+            public SuperAlbumFotos() : base(64)
+            {
+            }
+        }
+
+
+        #endregion
+
+        #region Ejer_103 - Herencia de objetos
+
+        public class PersonaEjer_103Test
+        {
+            public void Main()
+            {
+                int total = 3;
+                PersonaEjer_103[] personas = new PersonaEjer_103[total];
+
+                for (int i = 0; i < total; i++)
+                {
+                    if (i == 0)
+                    {
+                        Console.WriteLine("Ingrese Nombre");
+                        string name = Console.ReadLine();
+                        Console.WriteLine("ingrese edad");
+                        int edad = Convert.ToInt32(Console.ReadLine());
+                        personas[i] = new ProfesorEjer_103(name, edad);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ingrese Nombre");
+                        string name = Console.ReadLine();
+                        Console.WriteLine("ingrese edad");
+                        int edad = Convert.ToInt32(Console.ReadLine());
+                        personas[i] = new EstudianteEjer_103(name, edad);
+                    }
+                }
+
+                for (int i = 0; i < total; i++)
+                {
+                    if (i == 0)
+                    {
+                        ((ProfesorEjer_103) personas[i]).Explicar();
+
+                    }
+                    else
+                    {
+                        ((EstudianteEjer_103) personas[i]).Estudiar();
+                    }
+                }
+            }
+
+        }
+
+        public class PersonaEjer_103
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+
+            public PersonaEjer_103(string nombre, int edad)
+            {
+                Nombre = nombre;
+                Edad = edad;
+            }
+
+            public void Saludar()
+            {
+                Console.WriteLine("Hola");
+            }
+
+            public void SetEdad(int edad)
+            {
+                Edad = edad;
+            }
+
+            ~PersonaEjer_103()
+            {
+                Nombre = string.Empty;
+            }
+        }
+
+        public class EstudianteEjer_103 : PersonaEjer_103
+        {
+            public EstudianteEjer_103(string nombre, int edad) : base(nombre, edad)
+            {
+            }
+
+            public void Estudiar()
+            {
+                Console.WriteLine("Estoy Estudiando");
+            }
+
+            public void VerEdad()
+            {
+                Console.WriteLine("Mi Edad es " + Edad);
+            }
+
+        }
+
+        public class ProfesorEjer_103 : PersonaEjer_103
+        {
+            public ProfesorEjer_103(string nombre, int edad) : base(nombre, edad)
+            {
+            }
+
+            public void Explicar()
+            {
+                Console.WriteLine("Estoy Explicando");
+            }
+
+        }
+
+
+        #endregion
+
+        #region Ejer_104 - Formas - Diagrama de clases
+
+        public class Forma
+        {
+            protected Ubicacion c ;
+
+            public override string ToString()
+            {
+                return string.Empty;
+            }
+
+            public double Area()
+            {
+                return 0.000;
+            }
+ 
+            public double Perimetro()
+            {
+                return 0.000;
+            }
+
+        }
+
+        public class Ubicacion
+        {
+            private double x { get; set; }
+            private double y { get; set; }
+
+            public double GetBase()
+            {
+                return x;
+            }
+
+            public double GetAltura()
+            {
+                return y;
+            }
+        }
+        
+        public class Circulo : Ubicacion
+        {
+            private double radio;
+
+        }
+        
+        public class Rectangulo : Ubicacion
+        {
+            private double lado1;
+            private double lado2;
+        }
+
+        #endregion
+
+        #region Ejer_105 - Interfaces
+
+        public void Main()
+        {
+            Coche coche = new Coche(0);
+ 
+            int gasolina = int.Parse(Console.ReadLine());
+            if (coche.Repostar(gasolina))
+            {
+                coche.Conducir();
+            }
+        }
+ 
+        public interface IVehiculo
+        {
+            void Conducir();
+            bool Repostar(int amount);
+        }
+ 
+        public class Coche : IVehiculo
+        {
+            public int Gasolina { get; set; }
+ 
+            public Coche(int fuel)
+            {
+                Gasolina = fuel;
+            }
+ 
+            public void Conducir()
+            {
+                if (Gasolina > 0)
+                {
+                    Console.WriteLine("Conduciendo");
+                }
+                else
+                {
+                    Console.WriteLine("No hay gasolina");
+                }
+            }
+ 
+            public bool Repostar(int cantidad)
+            {
+                Gasolina += cantidad;
+                return true;
+            }
+        }
+
+        #endregion
+
+        #region Ejer_106 - Interfaces
+
+        public class Perro : Animal
+        {
+            public override void Comer()
+            {
+                Console.WriteLine("Comiendo");
+            }
+        }
+ 
+        public abstract class Animal
+        {
+            private string Nombre;
+ 
+            public void SetNombre(string nombre)
+            {
+                Nombre = nombre;
+            }
+ 
+            public string GetNombre()
+            {
+                return Nombre;
+            }
+ 
+            public abstract void Comer();
+        }
+
+        #endregion
+        
         #endregion
     }
 }
