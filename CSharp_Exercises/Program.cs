@@ -1901,6 +1901,30 @@ namespace CSharp_Exercises
             
             #region Ejer_90 - Calculadora con parámetros de Main
 
+            //---------------------------------------------------//
+            // int num1 = Convert.ToInt32(args[0]);
+            // char oper = Convert.ToChar(args[1]);
+            // int num2 = Convert.ToInt32(args[2]);
+            //
+            // switch (oper)
+            // {
+            //     case '+':
+            //         Console.WriteLine(num1 + num2);
+            //         break;
+            //     case '-':
+            //         Console.WriteLine(num1 - num2);
+            //         break;
+            //     case 'x':
+            //     case 'X':
+            //     case '*':
+            //         Console.WriteLine(num1 * num2);
+            //         break;
+            //     case '/':
+            //         Console.WriteLine(num1 / num2);
+            //         break;
+            // }
+            //---------------------------------------------------//
+            
             // Console.WriteLine("Ingrese 1er Valor");
             // float n1 = Convert.ToSingle(Console.ReadLine());
             // Console.WriteLine("Ingrese 2do Valor");
@@ -1909,8 +1933,153 @@ namespace CSharp_Exercises
             // string operacion =Console.ReadLine();
             //
             // Calculadora(n1,n2,operacion);
+            
+            #endregion
+
+            #region Ejer_90 - Retornar valor desde Main 
+
+            //https://www.exercisescsharp.com/es/funciones-c/retornar-valor-desde-main
+            
+            //Console.WriteLine(CalculadoraInfo(args));
+            
+            #endregion
+
+            #region Ejer_91 - Buscar el mínimo y máximo en un array
+
+            //https://www.exercisescsharp.com/es/funciones-c/buscar-minimo-y-maximo-en-array
+
+            // int total = 5;
+            // int max = int.MinValue;
+            // int min = int.MaxValue;
+            // int[] arr = new int[total];
+            // int count = 0;
+            //
+            // do
+            // {
+            //     Console.WriteLine("Ingrese Numero");
+            //     arr[count] = Convert.ToInt32(Console.ReadLine());
+            //     count++;
+            // } while (count < total);
+            //
+            // BuscarMinMax(ref max, ref min, arr);
+            // Console.WriteLine("El valor maximo agregados es: {0}, el valor minimo es: {1}",max,min);
 
             #endregion
+            
+            #region Ejer_92 - Función para comprobar palíndromo
+
+            //https://www.exercisescsharp.com/es/funciones-c/funcion-comprobar-palindromo
+
+            // Console.WriteLine("Ingrese palabra");
+            // string cadena = Console.ReadLine();
+            // Console.WriteLine(Palindromo(cadena));
+
+            #endregion
+            
+            //================================ Recursividad =====================================//
+
+            #region Ejer_93 - Calcular una potencia de manera recursiva
+
+            //https://www.exercisescsharp.com/es/recursividad/calcular-potencia-manera-recursiva
+            // Console.WriteLine("Ingrese un Numero");
+            // int numero = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese Un Exponente");
+            // int exponente = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine(Potencia(numero, exponente));
+
+            #endregion
+
+            #region Ejer_94 - Crear una función recursiva para multiplicar
+
+            //https://www.exercisescsharp.com/es/recursividad/crear-funcion-recursiva-multiplicar
+            // Console.WriteLine("Ingrese Un Numero");
+            // int n1 = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("Ingrese otro numero para multiplicarlo");
+            // int n2 = Convert.ToInt32(Console.ReadLine());
+            //
+            // Console.WriteLine(MultiplicarRecursivo(n1,n2));
+            #endregion
+
+            #region Ejer_95 - Calcular números de la serie de Fibonacci
+
+            //https://www.exercisescsharp.com/es/recursividad/calcular-numeros-serie-fibonacci
+
+            // Console.WriteLine("Ingrese catidad de repeticiones");
+            // int n = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine("El resultado es: {0}",Fibonacci(n));
+
+            #endregion
+
+            #region Ejer_96 - Calcular el factorial de un número
+
+            //https://www.exercisescsharp.com/es/recursividad/calcular-factorial-de-numero
+
+            // Console.WriteLine("Ingrese un Numero");
+            // int n = Convert.ToInt32(Console.ReadLine());
+            // Console.WriteLine(Factorial(n));
+
+            #endregion
+
+            #region Ejer_97 - Invertir una cadena de forma recursiva
+
+            //https://www.exercisescsharp.com/es/recursividad/invertir-cadena-recursiva
+            // Console.WriteLine("Ingrese Cadena De Texto");
+            // string text = Console.ReadLine();
+            // Console.WriteLine(InvertirRecursivo(text));
+
+            #endregion
+            
+            #region Ejer_98 - Comprobar palíndromo de forma recursiva
+
+            //https://www.exercisescsharp.com/es/recursividad/comprobar-palindromo-de-forma-recursiva
+
+            // Console.WriteLine("ingrese in texto");
+            // string text = Console.ReadLine();
+            // Console.WriteLine("Es Palindromo: {0}",PolindromoRecursivo(text));
+            //
+
+            #endregion
+
+            #region Ejer_99 - Primera clase y método ToString()
+
+            //https://www.exercisescsharp.com/es/poo/primera-clase-metodo-tostring
+            // int total = 3;
+            // Persona[] personas = new Persona[total];
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine("Ingrese un Nombre");
+            //     personas[i] = new Persona()
+            //     {
+            //         Nombre = Console.ReadLine()
+            //     };
+            //
+            // }
+            //
+            // for (int i = 0; i < total; i++)
+            // {
+            //     Console.WriteLine(personas[i]);
+            // }
+
+            #endregion
+
+            #region Ejer_100 - Constructores y destructores
+
+            int total = 3;
+            Persona_Ejer_100[] personas = new Persona_Ejer_100[total];
+ 
+            for (int i = 0; i < total; i++)
+            {
+                personas[i] = new Persona_Ejer_100(Console.ReadLine());
+            }
+
+            for (int i = 0; i < total; i++)
+            {
+                Console.WriteLine(personas[i].ToString());
+            }
+
+            #endregion
+
         }
 
         #region Structs
@@ -2211,6 +2380,7 @@ namespace CSharp_Exercises
 
         #region Ejer_90 - Calculadora con parámetros de Main
 
+        
         private static void Calculadora(float n1, float n2, string operacion)
         {
             switch (operacion)
@@ -2248,7 +2418,231 @@ namespace CSharp_Exercises
             return n1 / n2;
         }
         #endregion
+
+        #region Ejer_90 - Retornar valor desde Main
+
+        private static int CalculadoraInfo(string[] args)
+        {
+            if (args.Length != 3)
+            {
+                return 1;
+            }
+
+            bool operador = true;
+            if (args[2] == "+" || args[2] != "-" || args[2] != "/" || args[2] != "*" || args[2] != "x")
+            {
+                operador = false;
+            }
+
+            if (operador)
+            {
+                return 2;
+            }
+            int num1, num2;
+
+            try
+            {
+                num1 = Convert.ToInt32(args[0]);
+                num2 = Convert.ToInt32(args[2]);
+            }
+            catch
+            {
+                return 3;
+            }
+
+            return 0;
+        }
         
+
+        #endregion
+        
+        #region Ejer_91 - Buscar el mínimo y máximo en un array
+
+        private static void BuscarMinMax(ref int max, ref int min, int[] arr)
+        {
+            foreach (int n in arr)
+            {
+                if (n > max)
+                    max = n;
+                if (n < min)
+                    min = n;
+            }
+            
+        }
+
+        #endregion
+
+        #region Ejer_92 - Función para comprobar palíndromo
+
+        private static bool Palindromo(string cadena)
+        {
+            cadena = cadena.ToUpper();
+            int j = cadena.Length - 1;
+            for (int i = 0; i < j; i++)
+            {
+                if (cadena[j] != cadena[i])
+                    {
+                        return false;
+                    }
+                j--;
+            }
+            return true;
+        }
+
+        #endregion
+        
+        //================================ Funciones C =====================================//
+
+        #region Ejer_93 - Calcular una potencia de manera recursiva
+
+        public static int PotenciaRecursiva(int num, int exponente)
+        {
+            if (exponente == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return num*PotenciaRecursiva(num, exponente - 1);
+            }
+
+        }
+
+        #endregion
+        
+        #region Ejer_94 - Crear una función recursiva para multiplicar
+
+        private static int MultiplicarRecursivo(int n1, int n2)
+        {
+            if (n2 == 1)
+            {
+                return n1;
+            }
+            else
+            {
+                return n1 + MultiplicarRecursivo(n1, n2 - 1);
+            }
+        }
+
+        #endregion
+
+        #region Ejer_95 - Calcular números de la serie de Fibonacci
+
+        private static int Fibonacci(int n)
+        {
+            if (n==1||n==2)
+            {
+                return 1;
+            }
+            else
+            {
+                return Fibonacci( n-1) + Fibonacci( n-2);
+            }
+
+        }
+
+        #endregion
+
+        #region Ejer_96 - Calcular el factorial de un número
+
+        public static int Factorial(int n)
+        {
+            if (n==1)
+            {
+                return 1;
+            }
+            else
+            {
+                return n * Factorial(n - 1);
+            }
+
+        }
+
+        #endregion
+        
+        #region Ejer_97 - Invertir una cadena de forma recursiva
+
+        private static string InvertirRecursivo(string text)
+        {
+            if (text.Length <= 1)
+            {
+                return text;
+            }
+ 
+            char primeraLetra = text[0];
+            string resto = text.Substring(1);
+ 
+            return InvertirRecursivo(resto) + primeraLetra;
+        }
+
+        #endregion
+
+        #region Ejer_98 - Comprobar palíndromo de forma recursiva
+
+        private static bool PolindromoRecursivo(string texto)
+        {
+            if (texto.Length <= 1)
+            {
+                return true;
+            }
+            else
+            {
+                if (texto[0] != texto[texto.Length - 1])
+                {
+                    return false;
+                }
+                else
+                {
+                    return PolindromoRecursivo(texto.Substring(1, texto.Length - 2));
+                }
+            }
+        }
+
+        #endregion
+        
+        #endregion
+
+        #region Class
+           
+        //================================ POO =====================================//
+        
+        #region Ejer_99 - Primera clase y método ToString()
+
+        public class Persona
+        {
+            public string Nombre { get; set; }
+
+            public override string ToString()
+            {
+                return "¡Hola Mi Nombre es "+ Nombre+"!";
+            }
+        }
+
+        #endregion
+
+        #region Ejer_100 - Constructores y destructores
+
+        public class Persona_Ejer_100
+        {
+            public string Nombre { get; set; }
+
+            public Persona_Ejer_100(string nombre)
+            {
+                Nombre = nombre;
+            }
+
+            public override string ToString()
+            {
+                return "¡Hola Mi Nombre es "+ Nombre+"!";
+            }
+            ~Persona_Ejer_100()
+            {
+                Nombre = string.Empty;
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }
