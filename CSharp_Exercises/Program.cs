@@ -1,13 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data.SQLite;
 using System.Formats.Asn1;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace CSharp_Exercises
 {
     class Program
     {
+        public static string nombreBaseDatos = "out.sqlite";
+
         //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-cshar
         static void Main(string[] args)
         {
@@ -2247,9 +2251,487 @@ namespace CSharp_Exercises
 
             //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto-con-file
             
+            // string path = @"C:\Users\gabri\RiderProjects\CSharp-Excercises\input.txt";
+            // //la ruta es donde se encuentra mi proyecto en Rider
+            //
+            //     string archivo = "input.txt";
+            //     string textArchivo = File.ReadAllText(archivo);
+            //     Console.WriteLine(textArchivo);
+            //     Console.WriteLine();
             
+            // if (!File.Exists(path)) Si no Existe lo crea
+            // {
+            //     // Create a file to write to.
+            //     using (StreamWriter sw = File.CreateText(path))
+            //     {
+            //         sw.WriteLine("Hello");
+            //         sw.WriteLine("And");
+            //         sw.WriteLine("Welcome");
+            //     }
+            // }
+
+            // if (File.Exists(path))
+            // {
+            //     using (StreamReader sr = File.OpenText(path))
+            //     {
+            //         string s;
+            //         while ((s=sr.ReadLine()) != null)
+            //         {
+            //             Console.WriteLine(s);
+            //         }
+            //     }
+            //
+            //     File.OpenText(path);
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Archivo No existe");
+            // }
 
             #endregion
+
+            #region Ejer_109 - Buscar lineas en un archivo de texto
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/buscar-lineas-archivo-texto
+            // string archivo = "input.txt";
+            // string[] lineas = File.ReadAllLines(archivo);
+            //
+            // bool salir = false;
+            // do
+            // {
+            //     Console.WriteLine("Ingrese palabra o frase");
+            //     string texto = Console.ReadLine();
+            //
+            //     if (texto != "")
+            //     {
+            //         for (int i = 0; i < lineas.Length; i++)
+            //         {
+            //             if (lineas[i].Contains(texto))
+            //             {
+            //                 Console.WriteLine(lineas[i]);
+            //             }
+            //         }
+            //     }
+            //     else
+            //     {
+            //         salir = true;
+            //     }
+            // } while (!salir);
+
+            #endregion
+
+            #region Ejer_110 - Escribir en fichero de texto
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/escribir-fichero-texto
+
+            // string nombreArchivo = "out.txt";
+            // using (StreamWriter archivo = File.CreateText(nombreArchivo))
+            //     
+            // {
+            //     string linea;
+            //     do
+            //     {
+            //         linea = Console.ReadLine();
+            //
+            //         if (linea.Length != 0)
+            //         {
+            //             archivo.WriteLine(linea);
+            //         }
+            //     }
+            //     while (linea.Length != 0);
+            // }
+
+            #endregion
+
+            #region Ejer_111 - Actualizar un archivo de texto
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-a/actualizar-un-archivo-texto
+            
+            // string nombreArchivo = "out.txt";
+            // using (StreamWriter archivo = File.AppendText(nombreArchivo))
+            // {
+            //     string linea;
+            //     do
+            //     {
+            //         linea = Console.ReadLine();
+            //
+            //         if (linea.Length != 0)
+            //         {
+            //             archivo.WriteLine(linea);
+            //         }
+            //     }
+            //     while (linea.Length != 0);
+            // }
+
+            #endregion
+            
+            //======================== Archivos de texto B ==========================// 
+
+            #region Ejer_112 - Contar las palabras de un archivo
+
+            //https://www.exercisescsharp.com/es/archivos-de-texto-b/contar-palabras-de-archivo
+            
+            //mi Solucion
+            // string archivo = "input.txt";
+            // string linea;
+            // int contador = 0;
+            // string[] lineas = File.ReadAllLines(archivo);
+            //
+            //  for (int i = 0; i < lineas.Length; i++)
+            //  {
+            //      contador += lineas[i].Split(' ').Length;
+            //  }
+            //
+            //  Console.WriteLine("El total de palabras es {0}",contador);
+
+             
+             //solucion dada por la pagina
+            // using (StreamReader texto = File.OpenText(archivo))
+            // {
+            //     do
+            //     {
+            //         linea = texto.ReadLine();
+            //         if (linea != null)
+            //         {
+            //             contador += linea.Split(' ').Length;
+            //         }
+            //     } while (linea != null);
+            // }
+            //
+            // Console.WriteLine(contador);
+             #endregion
+
+             #region Ejer_113 - Convertir el texto de un archivo a mayúsculas
+
+             //https://www.exercisescsharp.com/es/archivos-de-texto-b/convertir-texto-archivo-mayusculas
+             // string entrada = "input.txt";
+             // string salida = "output.txt";
+             //
+             // string textoArchivo = File.ReadAllText(entrada);
+             // textoArchivo = textoArchivo.ToUpper();
+             //
+             // File.WriteAllText(salida, textoArchivo);
+             #endregion
+
+             #region Ejer_114 - Cifrar un archivo de texto
+
+             //https://www.exercisescsharp.com/es/archivos-de-texto-b/cifrar-archivo-texto
+           
+             // string entrada = "input.txt";
+             // string salida = "output.txt";
+             //
+             // string textoArchivo = File.ReadAllText(entrada);
+             //
+             // string textoCifrado = string.Empty;
+             // byte clave = 13;
+             // foreach (char letra in textoArchivo)
+             // {
+             //     textoCifrado += (char)(letra + clave);
+             // }
+             //File.WriteAllText(salida, textoCifrado);
+             
+             #endregion
+
+             #region Ejer_115 - Invertir texto de un archivo
+
+             //https://www.exercisescsharp.com/es/archivos-de-texto-b/invertir-texto-de-archivo
+             // string entrada = "input.txt";
+             // string salida = "input.inv";
+             //
+             // string[] lineas = File.ReadAllLines(entrada);
+             //
+             // using (StreamWriter escritor = File.CreateText(salida))
+             // {
+             //     for (int i = lineas.Length - 1; i >= 0; i--)
+             //     {
+             //         escritor.WriteLine(lineas[i]);
+             //     }
+             // }
+
+             #endregion
+
+             #region Ejer_116 - Programa More
+
+             //https://www.exercisescsharp.com/es/archivos-de-texto-b/programa-more
+             // string nombreArchivo = "input.txt";
+             //
+             // using (StreamReader archivo = new StreamReader(nombreArchivo))
+             // {
+             //     string linea;
+             //     int i = 0;
+             //
+             //     do
+             //     {
+             //         linea = archivo.ReadLine();
+             //         if (linea != null)
+             //         {
+             //             if (i > 0 && i % 24 == 0)
+             //             {
+             //                 Console.WriteLine();
+             //                 Console.WriteLine("Presione Enter para continuar...");
+             //                 Console.ReadLine();
+             //             }
+             //
+             //             if (linea.Length > 79)
+             //             {
+             //                 linea = linea.Substring(0, 79);
+             //             }
+             //
+             //             Console.WriteLine(linea);
+             //         }
+             //         i++;
+             //     }
+             //     while (linea != null);
+             // }
+             
+
+             #endregion
+             
+             //========================== Archivos binarios ============================//  
+             
+             //Ejercicios que analice su funcionamiento 
+
+             #region Ejer_117 - Leer etiquetas ID3 v1 de archivo MP3
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/leer-etiquetas-id3-v1-de-archivo-mp3
+             
+             // const int TAMANYO = 128;
+             // byte[] datos = new byte[TAMANYO];
+             //
+             // ID3v1Etiquetas tag = new ID3v1Etiquetas();
+             //
+             // // Leer datos archivo .mp3
+             // string nombreArchivo = "input.mp3";
+             // using (FileStream archivo = File.OpenRead(nombreArchivo))
+             // {
+             //     archivo.Seek(-128, SeekOrigin.End);
+             //
+             //     archivo.Read(tag.Id, 0, tag.Id.Length);
+             //     archivo.Read(tag.Titulo, 0, tag.Titulo.Length);
+             //     archivo.Read(tag.Artista, 0, tag.Artista.Length);
+             //     archivo.Read(tag.Album, 0, tag.Album.Length);
+             //     archivo.Read(tag.Anyo, 0, tag.Anyo.Length);
+             //     archivo.Read(tag.Comentario, 0, tag.Comentario.Length);
+             //     archivo.Read(tag.Genero, 0, tag.Genero.Length);
+             // }
+             //
+             // if (tag.EsID3v1Etiqueta())
+             // {
+             //     Console.WriteLine(tag.ToString());
+             // }
+
+             #endregion
+
+             #region Ejer_118 - Leer dimensiones de imagen BMP
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/leer-dimensiones-imagen-bmp
+             
+             // string nombreArchivo = "logo.bmp";
+             // int tamanyo = 54, ancho, alto;
+             // byte[] datos = new byte[tamanyo];
+             //
+             // using (FileStream archivo = File.OpenRead(nombreArchivo))
+             // {
+             //     archivo.Read(datos, 0, tamanyo);
+             // }
+             //
+             // if (datos[0] != 'B' || datos[1] != 'M')
+             // {
+             //     return; // No es un archivo BMP
+             // }
+             //
+             // ancho = datos[18] + (datos[19] * 256) +
+             //         (datos[20] * 256 * 256) +
+             //         (datos[21] * 256 * 256 * 256);
+             //
+             // alto = datos[22] + (datos[23] * 256) +
+             //        (datos[24] * 256 * 256) +
+             //        (datos[25] * 256 * 256 * 256);
+             //
+             // Console.WriteLine("{0}x{1}", ancho, alto);
+
+             #endregion
+
+             #region Ejer_118 - Cifrar una imagen BMP
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/cifrar-imagen-bmp
+             
+             // string nombreArchivo = "logo.bmp";
+             //
+             // using (FileStream archivo = File.Open(nombreArchivo, FileMode.Open, FileAccess.ReadWrite))
+             // {
+             //     char b1 = (char)archivo.ReadByte();
+             //     char b2 = (char)archivo.ReadByte();
+             //
+             //     if (b1 != 'B' || b2 != 'M')
+             //     {
+             //         return; // No es un archivo BMP
+             //     }
+             //     else
+             //     {
+             //         archivo.Seek(0, SeekOrigin.Begin);
+             //         archivo.WriteByte((byte)'M');
+             //         archivo.WriteByte((byte)'B');
+             //     }
+             // }
+
+             #endregion
+
+             #region Ejer_120 - Archivo invertido
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/archivo-invertido
+             
+             // string entrada = "app.exe";
+             // string salida = "app.inv";
+             //
+             // using (FileStream archivo = File.OpenRead(entrada))
+             // {
+             //     long tamanyo = archivo.Length;
+             //     byte[] datos = new byte[tamanyo];
+             //
+             //     archivo.Read(datos, 0, (int)tamanyo);
+             //
+             //     using (FileStream archivoSalida = File.Create(salida))
+             //     {
+             //         for (long i = tamanyo - 1; i >= 0; i--)
+             //         {
+             //             archivoSalida.WriteByte(datos[i]);
+             //         }
+             //     }
+             // }
+
+             #endregion
+
+             #region Ejer_121 - Copiador de archivos
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/copiador-archivos
+             
+             // const int TAMANYO_BUFFER = 512 * 1024;
+             // byte[] datos = new byte[TAMANYO_BUFFER];
+             //
+             // string entrada = "app.exe";
+             // string salida = "app-copy.exe";
+             //
+             // using (FileStream archivoEntrada = File.OpenRead(entrada))
+             // {
+             //     using (FileStream archivoSalida = File.Create(salida))
+             //     {
+             //         int totalLeido;
+             //         do
+             //         {
+             //             totalLeido = archivoEntrada.Read(datos, 0, TAMANYO_BUFFER);
+             //             archivoSalida.Write(datos, 0, totalLeido);
+             //         }
+             //         while (totalLeido == TAMANYO_BUFFER);
+             //     }
+             // }
+
+             #endregion
+
+             #region Ejer_122 - Dividir archivos
+
+             //https://www.exercisescsharp.com/es/archivos-binarios/dividir-archivos
+             // int TAMANYO_BUFFER = 5 * 1024;
+             // byte[] datos = new byte[TAMANYO_BUFFER];
+             //
+             // int totalLeido;
+             // int contador = 1;
+             //
+             // string nombreEntrada = "app";
+             // string ext = ".exe";
+             //
+             // using (FileStream inputFile = File.OpenRead(nombreEntrada + ext))
+             // {
+             //     do
+             //     {
+             //         totalLeido = inputFile.Read(datos, 0, TAMANYO_BUFFER);
+             //
+             //         if (totalLeido > 0)
+             //         {
+             //             using (FileStream nuevoArchivo = File.Create(nombreEntrada + "-" + contador.ToString("00")))
+             //             {
+             //                 nuevoArchivo.Write(datos, 0, totalLeido);
+             //                 contador++;
+             //             }
+             //         }
+             //     }
+             //     while (totalLeido == TAMANYO_BUFFER);
+             // }
+
+             #endregion
+
+             #region Ejer_123 - Visor hexadecimal
+
+            //https://www.exercisescsharp.com/es/archivos-binarios/visor-hexadecimal
+             
+             // const int TAMANYO_BUFFER = 16;
+             //
+             // string nombreArchivo = "app.exe";
+             //
+             // using (FileStream archivo = File.OpenRead(nombreArchivo))
+             // {
+             //     byte[] datos = new byte[TAMANYO_BUFFER];
+             //
+             //     int cantidad;
+             //     int c = 0;
+             //     string linea = string.Empty;
+             //
+             //     do
+             //     {
+             //         Console.Write(ToHex(archivo.Position, 8));
+             //         Console.Write("  ");
+             //
+             //         cantidad = archivo.Read(datos, 0, TAMANYO_BUFFER);
+             //
+             //         for (int i = 0; i < cantidad; i++)
+             //         {
+             //             Console.Write(ToHex(datos[i], 2) + " ");
+             //
+             //             if (datos[i] < 32)
+             //             {
+             //                 linea += ".";
+             //             }
+             //             else
+             //             {
+             //                 linea += (char) datos[i];
+             //             }
+             //         }
+             //
+             //
+             //         if (cantidad < TAMANYO_BUFFER)
+             //         {
+             //             for (int i = cantidad; i < TAMANYO_BUFFER; i++)
+             //             {
+             //                 Console.Write("   ");
+             //             }
+             //         }
+             //
+             //         Console.WriteLine(linea);
+             //         linea = "";
+             //
+             //         c++;
+             //         if (c == 24)
+             //         {
+             //             Console.ReadLine();
+             //             c = 0;
+             //         }
+             //     } while (cantidad == TAMANYO_BUFFER);
+             //
+             // }
+        
+             #endregion
+ 
+             //========================== Bases de datos SQLite ============================//
+
+             #region Ejer_124 - Leer lista de bases de datos
+
+             //https://www.exercisescsharp.com/sqlite-databases/read-list-from-databases
+             
+             CrearBaseDatosSiNoExiste();
+             CrearTablasSiNoExisten();
+
+             #endregion
+             
         }
 
         #region Structs
@@ -2782,7 +3264,58 @@ namespace CSharp_Exercises
         }
 
         #endregion
+        
+        //========================== Archivos binarios ============================// 
+        
+        #region Ejer_123 - Visor hexadecimal
+        public static  string ToHex(long n, int digits)
+        {
+            string hex = Convert.ToString(n, 16);
+            while (hex.Length < digits)
+            {
+                hex = "0" + hex;
+            }
 
+            return hex;
+        }
+
+        #endregion
+        
+        //========================== Bases de datos SQLite ============================//
+
+        #region Ejer_124 - Leer lista de bases de datos
+
+        public static void CrearBaseDatosSiNoExiste()
+        {
+            if (!File.Exists(nombreBaseDatos))
+            {
+                SQLiteConnection.CreateFile(nombreBaseDatos);
+            }
+        }
+
+        public static void CrearTablasSiNoExisten()
+        {
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + nombreBaseDatos + ";Version=3;"))
+            {
+                cnx.Open();
+
+                string sqlTablaPersona = "create table if not exists person (name varchar(20), age int)";
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlTablaPersona, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                string sqlTablaProfesor = "create table if not exists teacher (name varchar(20))";
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlTablaProfesor, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
+        
         #endregion
 
         #region Class
@@ -3208,6 +3741,59 @@ namespace CSharp_Exercises
         }
 
         #endregion
+        
+        //========================== Archivos binarios ============================// 
+        
+        #region Ejer_117 - Leer etiquetas ID3 v1 de archivo MP3
+
+        //https://www.exercisescsharp.com/es/archivos-binarios/leer-etiquetas-id3-v1-de-archivo-mp3
+
+        public class ID3v1Etiquetas
+        {
+            private static byte idEtiquetaLongitud = 3;
+            private static byte tituloEtiquetaLongitud = 30;
+            private static byte artistaEtiquetaLongitud = 30;
+            private static byte albumEtiquetaLongitud = 30;
+            private static byte anyoEtiquetaLongitud = 4;
+            private static byte comentarioEtiquetaLongitud = 30;
+            private static byte generoEtiquetaLongitud = 1;
+
+            public byte[] Id = new byte[idEtiquetaLongitud];
+            public byte[] Titulo = new byte[tituloEtiquetaLongitud];
+            public byte[] Artista = new byte[artistaEtiquetaLongitud];
+            public byte[] Album = new byte[albumEtiquetaLongitud];
+            public byte[] Anyo = new byte[anyoEtiquetaLongitud];
+            public byte[] Comentario = new byte[comentarioEtiquetaLongitud];
+            public byte[] Genero = new byte[generoEtiquetaLongitud];
+
+            public bool EsID3v1Etiqueta()
+            {
+                if (Encoding.Default.GetString(Id).Equals("TAG"))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            public override string ToString()
+            {
+                StringBuilder tag = new StringBuilder();
+
+                tag.AppendLine(Encoding.Default.GetString(Id));
+                tag.AppendLine(Encoding.Default.GetString(Titulo));
+                tag.AppendLine(Encoding.Default.GetString(Artista));
+                tag.AppendLine(Encoding.Default.GetString(Album));
+                tag.AppendLine(Encoding.Default.GetString(Anyo));
+                tag.AppendLine(Encoding.Default.GetString(Comentario));
+                tag.AppendLine(Encoding.Default.GetString(Genero));
+
+                return tag.ToString();
+            }
+        }
+
+        #endregion
+
         
         #endregion
     }
