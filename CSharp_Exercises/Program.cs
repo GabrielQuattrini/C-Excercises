@@ -1,16 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SQLite;
 using System.Formats.Asn1;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-
+using System.Xml.Serialization;
 namespace CSharp_Exercises
 {
     class Program
     {
         public static string nombreBaseDatos = "out.sqlite";
+        public static string DatabaseFileName = "persons.sqlite";
+     
 
         //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-cshar
         static void Main(string[] args)
@@ -2723,15 +2729,128 @@ namespace CSharp_Exercises
  
              //========================== Bases de datos SQLite ============================//
 
-             #region Ejer_124 - Leer lista de bases de datos
+             #region Ejer_124 - Leer lista de bases de datos 
+             
+             //https://www.exercisescsharp.com/sqlite-databases/read-list-from-databases
+             
+             // Read();
+             //
+             // foreach (var person in Persons)
+             // {
+             //     Console.WriteLine(person.Name);
+             //     Console.WriteLine(person.Age);
+             // }
+             
+             #endregion
+             
+             #region Ejer_125 - Crear base de datos y tablas
 
              //https://www.exercisescsharp.com/sqlite-databases/read-list-from-databases
              
+             // CrearBaseDatosSiNoExiste();
+             // CrearTablasSiNoExisten();
+
+             #endregion
+
+             #region Ejer_126 - Crear base de datos en memoria
+
+             //https://www.exercisescsharp.com/es/bases-datos-sqlite/crear-base-datos-en-memoria
+             //
+             // CrearTablas();
+
+             #endregion
+
+             #region Ejer_128 - Operaciones CRUD
+
+             //https://www.exercisescsharp.com/es/bases-datos-sqlite/operaciones-crud
+             
              CrearBaseDatosSiNoExiste();
-             CrearTablasSiNoExisten();
+             CrearTablasSiNoExistenCRUD();
+ 
+             do
+             {
+                 VerMenu();
+ 
+                 switch (OpcionMenu)
+                 {
+                     case 1: Agregar(); break;
+                     case 2: Ver(); break;
+                     case 3: Editar(); break;
+                     case 4: Eliminar(); break;
+                 }
+             } while (OpcionMenu != 5);
+             
+             #endregion
+             
+             //========================== Serialización de datos ============================//
+
+             #region Ejer_129 - BinaryFormatter: Serialización binaria
+
+             //https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-6.0
+             
+             // Persona persona = new Persona()
+             // {
+             //     Nombre = "Nauj",
+             //     Edad = 26,
+             //     Ciudad = new Ciudad()
+             //     {
+             //         Nombre = "Spain",
+             //         Poblacion = 13456766
+             //     }
+             // };
+             //
+             // Serializar(persona);
+             // persona = Deserializar();
+             //
+             // Console.WriteLine(persona.ToString());
 
              #endregion
              
+             #region Ejer_130 - XmlSerialization: Serializar objetos
+
+             //https://www.exercisescsharp.com/es/serializacion-datos/serializar-objetos-xmlserialization
+             
+             // Persona person = new Persona()
+             // {
+             //     Nombre = "Nauj",
+             //     Edad = 26,
+             //     Ciudad = new Ciudad()
+             //     {
+             //         Nombre = "Spain",
+             //         Poblacion = 13456766
+             //     }
+             // };
+             //
+             // Serializar(person);
+             // person = Deserializar();
+             //
+             // Console.WriteLine(person.ToString());
+
+             #endregion
+
+             #region Ejer_131 - JavaScriptSerializer: Serializar objetos
+             
+             //https://www.exercisescsharp.com/es/serializacion-datos/serializar-objetos-javascriptserializer
+
+             // Persona persona = new Persona()
+             // {
+             //     Nombre = "Nauj",
+             //     Edad = 26,
+             //     Ciudad = new Ciudad()
+             //     {
+             //         Nombre = "Spain",
+             //         Poblacion = 13456766
+             //     }
+             // };
+             //
+             // SerializarJavascript(persona);
+             // persona = DeserializarJavascript();
+             //
+             // Console.WriteLine(persona.ToString());
+             // Console.ReadLine();
+
+             #endregion
+        
         }
 
         #region Structs
@@ -3283,7 +3402,36 @@ namespace CSharp_Exercises
         
         //========================== Bases de datos SQLite ============================//
 
-        #region Ejer_124 - Leer lista de bases de datos
+        #region Ejer_124 - Leer lista de bases de datos 
+
+        public static List<PersonSQL> Persons = new List<PersonSQL>();
+        public static void Read()
+        {
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + DatabaseFileName + ";Version=3;"))
+            {
+                cnx.Open();
+                using (SQLiteCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select name, age from person";
+                    cmd.CommandType = CommandType.Text;
+                    SQLiteDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Persons.Add(new PersonSQL()
+                        {
+                            Name = reader["name"].ToString(),
+                            Age = int.Parse(reader["age"].ToString())
+                        });
+                    }
+                }
+            }
+        }
+        
+
+        #endregion
+        
+        #region Ejer_125 - Crear base de datos y tablas
 
         public static void CrearBaseDatosSiNoExiste()
         {
@@ -3315,6 +3463,296 @@ namespace CSharp_Exercises
         }
 
         #endregion
+
+        #region Ejer_126 - Crear base de datos en memoria
+
+        public static string CadenaConexion = "Data Source=:memory:;Version=3;New=True;";
+        public static void CrearTablas()
+        {
+            using (SQLiteConnection cnx = new SQLiteConnection(CadenaConexion))
+            {
+                cnx.Open();
+ 
+                string sqlTablaPersona = "create table person (name varchar(20), age int)";
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlTablaPersona, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+ 
+                string sqlTablaProfesor = "create table teacher (name varchar(20))";
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlTablaProfesor, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        
+
+        #endregion
+        
+        #region Ejer_128 - Operaciones CRUD
+        
+        public static string NombreBaseDatos = "persons.sqlite";
+        public static int OpcionMenu = -1;//por defecto -1
+        public static void VerMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("1. Agregar Persona");
+            Console.WriteLine("2. Ver Personas");
+            Console.WriteLine("3. Editar Persona");
+            Console.WriteLine("4. Eliminar Persona");
+            Console.WriteLine("5. Salir");
+ 
+            Console.WriteLine();
+            Console.Write("Introduzca una opción: ");
+            OpcionMenu = int.Parse(Console.ReadLine());
+ 
+            Console.Clear();
+        }
+        
+        public static void Agregar()
+        {
+            Console.Clear();
+            Console.WriteLine("Agregar Persona");
+            Console.WriteLine();
+ 
+            Console.Write("Nombre: ");
+            string name = Console.ReadLine();
+ 
+            Console.Write("Edad: ");
+            int age = int.Parse(Console.ReadLine());
+ 
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+            {
+                cnx.Open();
+                //linea sql 
+                string sql = "insert into person (name, age) values ('" + name + "'," + age + ")";
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        
+        public static void Ver()
+        {
+            Console.Clear();
+            Console.WriteLine("Ver Personas");
+            Console.WriteLine();
+            //connection to sql 
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+            {
+                cnx.Open();
+                using (SQLiteCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select * from person";
+                    cmd.CommandType = CommandType.Text;
+                    SQLiteDataReader lector = cmd.ExecuteReader();
+          
+                    while (lector.Read())
+                    {
+                         Console.WriteLine("Id: " + lector["id"].ToString());
+                         Console.WriteLine("Nombre: " + lector["name"].ToString());
+                         Console.WriteLine("Edad: " + lector["age"].ToString());
+                        Console.WriteLine();
+                    }
+                }
+            }
+        }
+        
+        private static bool existePersona(int idPersona)
+        {
+            bool existe = false;
+ 
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+            {
+                cnx.Open();
+                using (SQLiteCommand cmd = cnx.CreateCommand())
+                {
+                    cmd.CommandText = "select 1 as cant from person where id =" + idPersona;
+                    cmd.CommandType = CommandType.Text;
+                    SQLiteDataReader lector = cmd.ExecuteReader();
+                    if (lector.Read())
+                    {
+                        existe = lector["cant"].ToString() == "1" ? true : false;
+                    }
+                }
+            }
+ 
+            return existe;
+        }
+        
+        public static void Editar()
+        {
+            Console.Clear();
+            Console.WriteLine("Editar");
+            Console.WriteLine();
+ 
+            Console.Write("Id: ");
+            int idPersona = int.Parse(Console.ReadLine());
+ 
+            if (existePersona(idPersona))
+            {
+                Console.Write("Nombre: ");
+                string nuevoNombre = Console.ReadLine();
+ 
+                Console.Write("Edad: ");
+                int nuevaEdad = int.Parse(Console.ReadLine());
+ 
+                using (SQLiteConnection cnx =
+                    new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+                {
+                    cnx.Open();
+ 
+                    string sql = "update person set name='" + nuevoNombre + "'," +
+                                 "age=" + nuevaEdad + " where cod=" + idPersona;
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, cnx))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No encontrado");
+            }
+        }
+        
+        public static void Eliminar()
+        {
+            Console.Clear();
+            Console.WriteLine("Eliminar");
+            Console.WriteLine();
+ 
+            Console.Write("Cod: ");
+            int idPersona = int.Parse(Console.ReadLine());
+ 
+            if (existePersona(idPersona))
+            {
+                using (SQLiteConnection cnx =
+                    new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+                {
+                    cnx.Open();
+ 
+                    string sql = "delete from person where id=" + idPersona;
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, cnx))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("No encontrado");
+            }
+        }
+
+        
+        //Funcion que creara la tabla necesaria para agregar a los datos
+        public static void CrearTablasSiNoExistenCRUD()
+        {
+            using (SQLiteConnection cnx =
+                new SQLiteConnection("Data Source=" + NombreBaseDatos + ";Version=3;"))
+            {
+                cnx.Open();
+ 
+                string sql = "create table if not exists person(" +
+                             "id integer primary key autoincrement," +
+                             "name varchar(20)," +
+                             "age int)";
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, cnx))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
+        
+        //========================== Serialización de datos ============================//
+
+        //EJERCICIO analizado su funcionamiento.
+        #region Ejer_129 - BinaryFormatter: Serialización binaria
+
+        static string nombreArchivo = "out.json";
+        
+        public static void Serializar(Persona p)
+        {
+            IFormatter f = new BinaryFormatter();
+            using (Stream stream = new FileStream(nombreArchivo,
+                FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                f.Serialize(stream, p);
+            }
+        }
+        
+        public static Persona Deserializar()
+        {
+            Persona p;
+            IFormatter f = new BinaryFormatter();
+ 
+            using (Stream stream = new FileStream(nombreArchivo,
+                FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                p = (Persona)f.Deserialize(stream);
+            }
+ 
+            return p;
+        }
+
+        #endregion
+
+        #region Ejer_130 -
+
+        public static void SerializarXML(Persona p)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(Persona));
+ 
+            using (TextWriter escritor = new StreamWriter(nombreArchivo))
+            {
+                ser.Serialize(escritor, p);
+            }
+        }
+ 
+        public static Persona DeserializarXML()
+        {
+            Persona p;
+            XmlSerializer ser = new XmlSerializer(typeof(Persona));
+ 
+            using (TextReader lector = new StreamReader(nombreArchivo))
+            {
+                p = (Persona)ser.Deserialize(lector);
+            }
+ 
+            return p;
+        }
+
+        #endregion
+        
+        #region Ejer_131 - JavaScriptSerializer: Serializar objetos
+
+        //Biblioteca desactualizada 
+        // public static void SerializarJavascript(Persona p)
+        // {
+        //     JavaScriptSerializer js = new JavaScriptSerializer();
+        //     string json = js.Serialize(p);
+        //
+        //     File.WriteAllText(nombreArchivo, json);
+        // }
+        //
+        // public static Persona DeserializarJavascript()
+        // {
+        //     JavaScriptSerializer js = new JavaScriptSerializer();
+        //     string json = File.ReadAllText(nombreArchivo);
+        //     Persona persona = js.Deserialize<Persona>(json);
+        //
+        //     return persona;
+        // }
+
+        #endregion
         
         #endregion
 
@@ -3324,7 +3762,7 @@ namespace CSharp_Exercises
 
         #region Ejer_99 - Primera clase y método ToString()
 
-        public class Persona
+        public class PersonaEjer_99
         {
             public string Nombre { get; set; }
 
@@ -3794,7 +4232,51 @@ namespace CSharp_Exercises
 
         #endregion
 
+        //========================== Bases de datos SQLite ============================//
+        
+        #region Ejer_124 - Leer lista de bases de datos 
+
+        public class PersonSQL
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+
+        #endregion 
+        
+        //========================== Serialización de datos ============================//
+        
+        
+        #region Ejer_129 - BinaryFormatter: Serialización binaria
+        
+        [Serializable]
+        public class Persona
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+            public Ciudad Ciudad { get; set; }
+ 
+            public override string ToString()
+            {
+                StringBuilder str = new StringBuilder();
+ 
+                str.AppendLine("Nombre: " + Nombre);
+                str.AppendLine("Edad: " + Edad);
+                str.AppendLine("Ciudad: " + Ciudad.Nombre);
+ 
+                return str.ToString();
+            }
+        }
+        
+        [Serializable]
+        public class Ciudad
+        {
+            public string Nombre { get; set; }
+            public int Poblacion { get; set; }
+        }
         
         #endregion
+        #endregion
     }
+    
 }
