@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,16 +9,18 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
+
 namespace CSharp_Exercises
 {
     class Program
     {
         public static string nombreBaseDatos = "out.sqlite";
         public static string DatabaseFileName = "persons.sqlite";
-     
-
+        
         //https://www.exercisescsharp.com/es/introduccion-a-csharp/caracteristicas-de-cshar
         static void Main(string[] args)
         {
@@ -42,11 +45,16 @@ namespace CSharp_Exercises
 
             #endregion
 
-            #region Ejer_3 - Leer entrada del usuario
+            #region Ejer_3 - Leer entrada del usuario - Read()
 
             //https://www.exercisescsharp.com/es/introduccion-a-csharp/leer-entrada-usuario
 
-            // Console.WriteLine("¿
+            /*
+             * Documentacion Read:
+             * https://docs.microsoft.com/en-us/dotnet/api/system.console.read?view=net-6.0
+             */
+            
+            // Console.WriteLine("¿Cuál es tu animal favorito?");
             //Console.Read();
             // Console.WriteLine("El mio tambien");
             // Console.Read();
@@ -1334,6 +1342,11 @@ namespace CSharp_Exercises
 
             #region Ejer_62 - struct
 
+            /*
+             * Documentacion:
+             * https://www.tutorialsteacher.com/csharp/csharp-struct
+             */
+            
             //https://www.exercisescsharp.com/es/tipos-de-datos-b/struct
 
             // Console.WriteLine("Ingrese nombre");
@@ -1401,7 +1414,6 @@ namespace CSharp_Exercises
             //     }
             //
             // } while (n != "fin");
-
 
             #endregion
 
@@ -1704,6 +1716,11 @@ namespace CSharp_Exercises
 
             //https://www.exercisescsharp.com/es/matrices/circunferencia-en-pantalla
 
+            /*
+             * Documentacion:
+             * https://docs.microsoft.com/en-us/dotnet/api/system.console.setcursorposition?view=net-6.0
+             */
+            
             // double x, y;
             // double radio;
             //
@@ -1727,7 +1744,7 @@ namespace CSharp_Exercises
 
             #region Ejer_73 - Función saludo y despedida
 
-            //https://www.exercisescsharp.com/es/funciones-a/funcion-saludo-despedida
+            // https://www.exercisescsharp.com/es/funciones-a/funcion-saludo-despedida
             // Saludar();
             // Despedirse();
 
@@ -2214,9 +2231,14 @@ namespace CSharp_Exercises
             
             //======================== Archivos de texto A ==========================// 
 
-            #region Ejer_106 - Leer un archivo de texto
+            #region Ejer_106 - Leer un archivo de texto - SteanReader
             
             //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto
+            
+            /*
+             * Documentacion:
+             * https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader?view=net-6.0
+             */
             
             // string linea;
             // string nombreArchivo = "input.txt";
@@ -2233,9 +2255,14 @@ namespace CSharp_Exercises
 
             #endregion
 
-            #region Ejer_107 - Leer un archivo de texto con using
+            #region Ejer_107 - Leer un archivo de texto con using  - Using
 
             //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto-con-using
+            
+            /*
+             * Documentacion:
+             * https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement
+             */
             
             // string linea;
             // string nombreArchivo = "input.txt";
@@ -2253,9 +2280,14 @@ namespace CSharp_Exercises
 
             #endregion
 
-            #region Ejer_108 - Leer un archivo de texto con File
+            #region Ejer_108 - Leer un archivo de texto con File - File
 
             //https://www.exercisescsharp.com/es/archivos-de-texto-a/leer-archivo-texto-con-file
+
+            /*
+             * Documentacion:
+             * https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0
+             */
             
             // string path = @"C:\Users\gabri\RiderProjects\CSharp-Excercises\input.txt";
             // //la ruta es donde se encuentra mi proyecto en Rider
@@ -2264,7 +2296,7 @@ namespace CSharp_Exercises
             //     string textArchivo = File.ReadAllText(archivo);
             //     Console.WriteLine(textArchivo);
             //     Console.WriteLine();
-            
+
             // if (!File.Exists(path)) Si no Existe lo crea
             // {
             //     // Create a file to write to.
@@ -2558,9 +2590,14 @@ namespace CSharp_Exercises
 
              #endregion
 
-             #region Ejer_118 - Cifrar una imagen BMP
+             #region Ejer_118 - Cifrar una imagen BMP - FileStream
 
              //https://www.exercisescsharp.com/es/archivos-binarios/cifrar-imagen-bmp
+             
+             /*
+              * Documentacion:
+              * https://docs.microsoft.com/en-us/dotnet/api/system.io.filestream?view=net-6.0
+              */
              
              // string nombreArchivo = "logo.bmp";
              //
@@ -2764,28 +2801,33 @@ namespace CSharp_Exercises
 
              //https://www.exercisescsharp.com/es/bases-datos-sqlite/operaciones-crud
              
-             CrearBaseDatosSiNoExiste();
-             CrearTablasSiNoExistenCRUD();
- 
-             do
-             {
-                 VerMenu();
- 
-                 switch (OpcionMenu)
-                 {
-                     case 1: Agregar(); break;
-                     case 2: Ver(); break;
-                     case 3: Editar(); break;
-                     case 4: Eliminar(); break;
-                 }
-             } while (OpcionMenu != 5);
+             // CrearBaseDatosSiNoExiste();
+             // CrearTablasSiNoExistenCRUD();
+             //
+             // do
+             // {
+             //     VerMenu();
+             //
+             //     switch (OpcionMenu)
+             //     {
+             //         case 1: Agregar(); break;
+             //         case 2: Ver(); break;
+             //         case 3: Editar(); break;
+             //         case 4: Eliminar(); break;
+             //     }
+             // } while (OpcionMenu != 5);
              
              #endregion
              
              //========================== Serialización de datos ============================//
 
-             #region Ejer_129 - BinaryFormatter: Serialización binaria
+             #region Ejer_129 - BinaryFormatter: Serialización binaria - BinaryFormatter
 
+             /*
+              * Documentacion
+              * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-6.0
+              */
+             
              //https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-6.0
              
              // Persona persona = new Persona()
@@ -2827,7 +2869,7 @@ namespace CSharp_Exercises
              // Console.WriteLine(person.ToString());
 
              #endregion
-
+             
              #region Ejer_131 - JavaScriptSerializer: Serializar objetos
              
              //https://www.exercisescsharp.com/es/serializacion-datos/serializar-objetos-javascriptserializer
@@ -2850,9 +2892,183 @@ namespace CSharp_Exercises
              // Console.ReadLine();
 
              #endregion
-        
-        }
 
+             #region Ejer_132 - DataContractJsonSerializer: Serializar objetos 
+
+             //https://www.exercisescsharp.com/es/serializacion-datos/serializar-objetos-datacontractjsonserializer
+             /* Documentación:
+              * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.json.datacontractjsonserializer?view=net-6.0
+              */
+             
+             // PersonaDataContract person = new PersonaDataContract()
+             // {
+             //     Nombre = "Pepe",
+             //     Edad = 25,
+             //     Ciudad = new CiudadDataContract()
+             //     {
+             //         Nombre = "Loberia",
+             //         Poblacion = 56766
+             //     }
+             // };
+             //
+             // SerializarDataContract(person);
+             // person = DeserializarDataContract();
+             //
+             // Console.WriteLine(person.ToString());
+             
+             #endregion
+
+             #region Ejer_133 - Newtonsoft.Json: Serializar objetos
+
+             /*
+              * Documentación:
+              * https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_jsonconvert.htm
+              */
+             
+             // PersonaNewtonsoft persona = new PersonaNewtonsoft()
+             // {
+             //     Nombre = "Pepe",
+             //     Edad = 25,
+             //     Ciudad = new CiudadNewtonsoft()
+             //     {
+             //         Nombre = "Loberia",
+             //         Poblacion = 56766
+             //     }
+             // };
+             //
+             // SerializarNewtonsoft(persona);
+             // persona = DeserializarNewtonsoft();
+             //
+             // Console.WriteLine(persona.ToString());
+
+             #endregion
+             
+             //========================== Colecciones genéricas ============================//
+
+             #region Ejer_134 - ArrayList de objetos
+
+             // ArrayList list = new ArrayList();
+             //
+             // int total = 3;
+             // for (int i = 0; i < total; i++)
+             // {
+             //     Console.WriteLine("Ingrese Nombre");
+             //     string name = Console.ReadLine();
+             //     Console.WriteLine("Ingrese edad");
+             //     int edad = Convert.ToInt32(Console.ReadLine());
+             //     
+             //     list.Add(new PersonToArray(){
+             //         Name = name,
+             //         Edad = edad
+             //     });
+             // }
+             //
+             // imprimirPersonas(list);
+
+             #endregion
+
+             #region Ejer_135 - Cola con arrays
+
+             //https://www.exercisescsharp.com/es/colecciones-genericas/cola-con-arrays
+             
+             // int tamanio = 2;
+             // Cola cola = new Cola(tamanio);
+             //
+             // int value1 = 7,
+             //     value2 = 1;
+             //
+             // cola.Encolar(value1);
+             // cola.Encolar(value2);
+             //
+             // value1 = cola.Desencolar();
+             // value2 = cola.Desencolar();
+             //
+             // Console.WriteLine(value1);
+             // Console.WriteLine(value2);
+             
+             #endregion
+
+             #region Ejer_136 - Cola de objetos
+
+             /*
+              * Documentacion:
+              * https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1?view=net-6.0
+              */
+             
+             //https://www.exercisescsharp.com/es/colecciones-genericas/cola-de-objetos
+             
+             // Queue colaPersons = new Queue();
+             // int total = 3;
+             //
+             // for (int i = 0; i < total; i++)
+             // {
+             //     Console.WriteLine("Ingrese Nombre");
+             //     string nombre = Console.ReadLine();
+             //     Console.WriteLine("Ingrese Edad");
+             //     int edad = int.Parse(Console.ReadLine());
+             //
+             //     colaPersons.Enqueue(new Persona()
+             //     {
+             //         Nombre = nombre,
+             //         Edad = edad
+             //     });
+             // }
+             //
+             // for (int i = 0; i < total; i++)
+             // {
+             //     Persona p = (Persona)colaPersons.Dequeue();
+             //     Console.WriteLine(p.ToString());
+             // }
+
+             #endregion
+
+             #region Ejer_137 - Pila con arrays
+
+             //https://www.exercisescsharp.com/es/colecciones-genericas/pila-con-arrays
+             
+             // int tamanio = 2;
+             // Pila pila = new Pila(tamanio);
+             //
+             // int val1 = 7,
+             //     val2 = 1;
+             //
+             // pila.Apilar(val1);
+             // pila.Apilar(val2);
+             // val1 = pila.Desapilar();
+             // val2 = pila.Desapilar();
+             // Console.WriteLine(val1);
+             // Console.WriteLine(val2);
+
+             #endregion
+
+             #region Ejer_138 - Pila de objetos
+
+             Stack pila = new Stack();
+             int total = 3;
+ 
+             for (int i = 0; i < total; i++)
+             {
+                 Console.WriteLine("Ingrese Nombre");
+                 string nombre = Console.ReadLine();
+                 Console.WriteLine("Ingrese Edad");
+                 int edad = int.Parse(Console.ReadLine());
+ 
+                 pila.Push(new PersonaColecciones()
+                 {
+                     Nombre = nombre,
+                     Edad = edad
+                 });
+             }
+ 
+             for (int i = 0; i < total; i++)
+             {
+                 PersonaColecciones p = (PersonaColecciones)pila.Pop();
+                 Console.WriteLine(p.ToString());
+             }
+
+             #endregion
+        }
+        
         #region Structs
 
         #region Ejer_60 - struct
@@ -3705,7 +3921,7 @@ namespace CSharp_Exercises
 
         #endregion
 
-        #region Ejer_130 -
+        #region Ejer_130 - XmlSerialization: Serializar objetos
 
         public static void SerializarXML(Persona p)
         {
@@ -3730,7 +3946,7 @@ namespace CSharp_Exercises
             return p;
         }
 
-        #endregion
+        #endregion  
         
         #region Ejer_131 - JavaScriptSerializer: Serializar objetos
 
@@ -3751,6 +3967,71 @@ namespace CSharp_Exercises
         //
         //     return persona;
         // }
+
+        #endregion
+
+        #region Ejer_132 - DataContractJsonSerializer: Serializar objetos
+        
+        static string nombreArchivo2 = "out.json";
+        public static void SerializarDataContract(PersonaDataContract p)
+        {
+            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(Persona));
+            using (MemoryStream msObj = new MemoryStream())
+            {
+                js.WriteObject(msObj, p);
+                msObj.Position = 0;
+                using (StreamReader sr = new StreamReader(msObj))
+                {
+                    string json = sr.ReadToEnd();
+                    File.WriteAllText(nombreArchivo2, json);
+                }
+            }
+        }
+        
+        public static PersonaDataContract DeserializarDataContract()
+        {
+            DataContractJsonSerializer js = new DataContractJsonSerializer(typeof(PersonaDataContract));
+            PersonaDataContract persona;
+ 
+            string json = File.ReadAllText(nombreArchivo2);
+            using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(json)))
+            {
+                persona = (PersonaDataContract)js.ReadObject(ms);
+            }
+ 
+            return persona;
+        }
+
+        #endregion
+
+        #region Ejer_133 - Newtonsoft.Json: Serializar objetos
+
+        public static void SerializarNewtonsoft(PersonaNewtonsoft p)
+        {
+            string json = JsonConvert.SerializeObject(p);
+            File.WriteAllText(nombreArchivo, json);
+        }
+ 
+        public static PersonaNewtonsoft DeserializarNewtonsoft()
+        {
+            string json = File.ReadAllText(nombreArchivo);
+            return JsonConvert.DeserializeObject<PersonaNewtonsoft>(json);
+        }
+
+        #endregion
+        
+        //========================== Colecciones genéricas ============================//
+
+        #region Ejer_134 - Ejer_134 - ArrayList de objetos
+
+        public static void imprimirPersonas(ArrayList persons)
+        {
+            foreach (PersonToArray person in persons)
+            {
+                Console.WriteLine("Nombre: {0}, Edad: {1}", person.Name, person.Edad);
+            }
+        }
+
 
         #endregion
         
@@ -3939,7 +4220,6 @@ namespace CSharp_Exercises
             {
             }
         }
-
 
         #endregion
 
@@ -4246,7 +4526,6 @@ namespace CSharp_Exercises
         
         //========================== Serialización de datos ============================//
         
-        
         #region Ejer_129 - BinaryFormatter: Serialización binaria
         
         [Serializable]
@@ -4276,7 +4555,170 @@ namespace CSharp_Exercises
         }
         
         #endregion
+
+        #region Ejer_132 - DataContractJsonSerializer: Serializar objetos
+
+        [DataContract]
+        public class PersonaDataContract
+        {
+            [DataMember]
+            public string Nombre { get; set; }
+ 
+            [DataMember]
+            public int Edad { get; set; }
+ 
+            [DataMember]
+            public CiudadDataContract Ciudad { get; set; }
+ 
+            public override string ToString()
+            {
+                StringBuilder str = new StringBuilder();
+ 
+                str.AppendLine("Nombre: " + Nombre);
+                str.AppendLine("Edad: " + Edad);
+                str.AppendLine("Ciudad: " + Ciudad.Nombre);
+ 
+                return str.ToString();
+            }
+        }
+        
+        [DataContract]
+        public class CiudadDataContract
+        {
+            [DataMember]
+            public string Nombre { get; set; }
+ 
+            [DataMember]
+            public int Poblacion { get; set; }
+        }
+        
+        #endregion
+        
+        #region Ejer_133 - Newtonsoft.Json: Serializar objetos
+
+        public class PersonaNewtonsoft
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+            public CiudadNewtonsoft Ciudad { get; set; }
+ 
+            public override string ToString()
+            {
+                StringBuilder str = new StringBuilder();
+ 
+                str.AppendLine("Nombre: " + Nombre);
+                str.AppendLine("Edad: " + Edad);
+                str.AppendLine("Ciudad: " + Ciudad.Nombre);
+ 
+                return str.ToString();
+            }
+        }
+ 
+        public class CiudadNewtonsoft
+        {
+            public string Nombre { get; set; }
+            public int Poblacion { get; set; }
+        }
+
+        #endregion
+        
+        //========================== Colecciones genéricas ============================//
+
+        #region Ejer_134 - Ejer_134 - ArrayList de objetos
+        
+        public class PersonToArray
+        {
+            public string Name { get; set; }
+            public int Edad { get; set; }
+            
+            
+        }
+
+        #endregion
+        
+        #region Ejer_135 - Cola con arrays
+
+        public class Cola
+        {
+            public int pos;
+            public int[] cola;
+
+            public Cola(int tam)
+            {
+                this.pos = 0;
+                this.cola = new int[tam];
+            }
+
+            public void Encolar(int value)
+            {
+                pos++;
+                cola[pos] = value;
+            }
+            public int Desencolar()
+            {
+                int aux = cola[0];
+ 
+                for (int i = 0; i < pos; i++)
+                {
+                    cola[i] = cola[i + 1];
+                }
+                pos--;//achico el tamaño de pos
+                
+                //cola[pos] = aux;
+               //return cola[pos + 1];
+               return aux;
+            }
+        }
+        
+        #endregion
+
+        #region Ejer_137 - Pila con arrays
+
+        public class Pila
+        {
+            private int[] pila;
+            private int pos;
+ 
+            public Pila(int tamanio)
+            {
+                pos = 0;
+                pila = new int[tamanio];
+            }
+ 
+            public void Apilar(int value)
+            {
+                pila[pos] = value;
+                pos++;
+            }
+ 
+            public int Desapilar()
+            {
+                if (pos > 0)
+                {
+                    pos = pos - 1;
+                    return pila[pos];
+                }
+                return 0;
+            }
+        }
+
+        #endregion
+
+        #region Ejer_138 - Pila de objetos
+
+        public class PersonaColecciones
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+ 
+            public override string ToString()
+            {
+                return Nombre + " - " + Edad;
+            }
+        }
+        
+        #endregion
+        
         #endregion
     }
-    
 }
